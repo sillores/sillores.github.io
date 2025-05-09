@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silhouette Lores - Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('dragstart', event => event.preventDefault());
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Silhouette Lores</h1>
+    <p>
+      Contact: <a href="mailto:ghosh.bineet22@gmail.com" class="link">ghosh.bineet22@gmail.com</a> |
+      <a href="https://www.instagram.com/silhouettelores/" target="_blank" class="link">@silhouettelores</a>
+    </p>
+    <p>For purchasing a photograph, please contact me directly.</p>
+    <p>All photos &copy; <a href="https://www.instagram.com/ghoshbineet/" target="_blank" class="link">Bineet Ghosh</a>. All rights reserved.</p>
+  </header>
+
+  <section id="gallery"></section>
+
+  <footer>
+    <p>Follow on <a href="https://www.instagram.com/silhouettelores/" target="_blank">Instagram</a></p>
+    <p>Contact: <a href="mailto:ghosh.bineet22@gmail.com">ghosh.bineet22@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const data = [
+      { filename: "photo4.jpg", heading: "Still Reflections", caption: "Trees and sky merge in still waters.", price: "₹4200" },
+      { filename: "photo3.jpg", heading: "Alone in Light", caption: "A solitary lamp in the mist.", price: "₹4500" },
+      { filename: "photo2.jpg", heading: "Monsoon Haze", caption: "Raindrops on an old temple stair.", price: "₹3500" },
+      { filename: "photo1.jpg", heading: "Dusk Dreams", caption: "A quiet sunset whispers in the hills.", price: "₹4000" }
+    ];
+    const gallery = document.getElementById('gallery');
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'photo-card';
+      card.innerHTML = `
+        <img src="images/${item.filename}" alt="${item.heading}" />
+        <div class="photo-info">
+          <h3>${item.heading}</h3>
+          <p>${item.caption}</p>
+          <p><strong>Price:</strong> ${item.price}</p>
+        </div>
+      `;
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+</html>
