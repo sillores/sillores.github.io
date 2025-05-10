@@ -154,7 +154,7 @@
 
   const gallery = document.getElementById('gallery');
 
-  function loadImages(batchSize = 1, delay = 1000) {
+  function loadImages(batchSize = 2, delay = 3000) {
     let index = 0;
 
     function loadBatch() {
@@ -184,6 +184,67 @@
 
   loadImages(); // You can tweak batch size & delay if needed
 </script>
+<!--<script>
+  const data = [
+    { url: "https://tinyurl.com/4u83d4cp", heading: "Shot of The Moon", caption: " A night where stars whisper and the moon shoots through the dark like a dream", price: "Ping Me!" },
+    { url: "https://tinyurl.com/mrvrs3ra", heading: "Shared Waters", caption: "A quiet rhythm of life — humble hands, shared waters, and the harmony of growing together", price: "Ping Me!" },
+    { url: "https://tinyurl.com/3mr7b7kt", heading: "Hallway", caption: "Hallway — where the present walks and the past quietly watches", price: "Ping Me!" },
+    { url: "https://tinyurl.com/3zysmep9", heading: "রোদ্দুর", caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", price: "Ping Me!" },
+    { url: "https://tinyurl.com/eak5hynx", heading: "Silhouette", caption: "Where light meets shadow, and the day whispers its last goodbye", price: "Ping Me!" },
+    { url: "https://tinyurl.com/43bczrh4", heading: "Sands of Time", caption: "A slow trail through the sands of time — every ripple a story, every step a quiet persistence.", price: "Ping Me!" },
+    { url: "https://tinyurl.com/33retn5b", heading: "Many Doors", caption: "Many doors, each a whisper — of places I’ve yet to meet within myself", price: "Ping Me!" },
+    { url: "https://tinyurl.com/5f3eb9au", heading: "Troops of Occupation", caption: "Troops of occupation, not of war but of waves", price: "Ping Me!" },
+    { url: "https://tinyurl.com/yptp9yen", heading: "Tulips", caption: "Meet my new roommate. She doesn't talk much, but she vibes and breathes (really!)", price: "Ping Me!" },
+    { url: "https://tinyurl.com/udbsxx3e", heading: "Sunset", caption: "Every sunset carries a quiet question: ending or beginning?", price: "Ping Me!" },
+    { url: "https://tinyurl.com/2w2vu6nd", heading: "Glow", caption: "She glows in colors bold and bright, watches in silence, guards with light", price: "Ping Me!" },
+    { url: "https://tinyurl.com/25bfh47r", heading: "A Path to Bohemia", caption: "Into the woods I go, chasing stillness and bohemian dreams", price: "Ping Me!" },
+    { url: "https://tinyurl.com/mw3m33zv", heading: "Livelihood", caption: "More than a livelihood — a silent pact between man and the tide", price: "Ping Me!" },
+    { url: "https://tinyurl.com/32ttxm29", heading: "Bridges", caption: "Bridges do more than connect places—they carry dreams, burdens, and the weight of life itself.", price: "Ping Me!" }
+  ];
+
+  const gallery = document.getElementById('gallery');
+  const MAX_RETRIES = 3;
+
+  function loadImage(index, retries = 0) {
+    if (index >= data.length) return;
+
+    const item = data[index];
+    const img = new Image();
+
+    img.onload = function () {
+      const card = document.createElement('div');
+      card.className = 'photo-card';
+      card.innerHTML = `
+        <img src="${item.url}" alt="${item.heading}" />
+        <div class="photo-info">
+          <h3>${item.heading}</h3>
+          <p>${item.caption}</p>
+          <p><strong>Want it on your wall?</strong> ${item.price}</p>
+        </div>
+      `;
+      gallery.appendChild(card);
+      loadImage(index + 1); // Load next image
+    };
+
+    img.onerror = function () {
+      if (retries < MAX_RETRIES) {
+        console.warn(`Retrying ${item.url} (${retries + 1}/${MAX_RETRIES})`);
+        setTimeout(() => loadImage(index, retries + 1), 1000); // Retry after 1 second
+      } else {
+        console.error(`Failed to load ${item.url} after ${MAX_RETRIES} attempts`);
+        loadImage(index + 1); // Skip to next image after max retries
+      }
+    };
+
+    img.src = item.url;
+  }
+
+  loadImage(0);
+</script>-->
+
+
+
+
 
 
 </body>
