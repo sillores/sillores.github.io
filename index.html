@@ -134,7 +134,7 @@
 		gallery.appendChild(card);
     });
   </script>-->
-  <script>
+  <!--<script>
   const data = [
     { url: "https://tinyurl.com/4u83d4cp", heading: "Shot of The Moon", caption: " A night where stars whisper and the moon shoots through the dark like a dream", price: "Ping Me!" },
     { url: "https://tinyurl.com/mrvrs3ra", heading: "Shared Waters", caption: "A quiet rhythm of life — humble hands, shared waters, and the harmony of growing together", price: "Ping Me!" },
@@ -183,8 +183,8 @@
   }
 
   loadImages(); // You can tweak batch size & delay if needed
-</script>
-<!--<script>
+</script>-->
+<script>
   const data = [
     { url: "https://tinyurl.com/4u83d4cp", heading: "Shot of The Moon", caption: " A night where stars whisper and the moon shoots through the dark like a dream", price: "Ping Me!" },
     { url: "https://tinyurl.com/mrvrs3ra", heading: "Shared Waters", caption: "A quiet rhythm of life — humble hands, shared waters, and the harmony of growing together", price: "Ping Me!" },
@@ -203,44 +203,67 @@
   ];
 
   const gallery = document.getElementById('gallery');
-  const MAX_RETRIES = 3;
+  const MAX_RETRIES = 10;
+  const DELAY = 100; // 1 second between images
+
+  function createCard(item, imageUrl, failed = false) {
+    const card = document.createElement('div');
+    card.className = 'photo-card';
+    const imgElement = failed
+      ? `<div class="img-placeholder">Image failed to load</div>`
+      : `<img src="${imageUrl}" alt="${item.heading}" />`;
+    card.innerHTML = `
+      ${imgElement}
+      <div class="photo-info">
+        <h3>${item.heading}</h3>
+        <p>${item.caption}</p>
+        <p><strong>Want it on your wall?</strong> ${item.price}</p>
+      </div>
+    `;
+    gallery.appendChild(card);
+  }
 
   function loadImage(index, retries = 0) {
     if (index >= data.length) return;
 
     const item = data[index];
-    const img = new Image();
+    const testImg = new Image();
 
-    img.onload = function () {
-      const card = document.createElement('div');
-      card.className = 'photo-card';
-      card.innerHTML = `
-        <img src="${item.url}" alt="${item.heading}" />
-        <div class="photo-info">
-          <h3>${item.heading}</h3>
-          <p>${item.caption}</p>
-          <p><strong>Want it on your wall?</strong> ${item.price}</p>
-        </div>
-      `;
-      gallery.appendChild(card);
-      loadImage(index + 1); // Load next image
+    testImg.onload = () => {
+      createCard(item, item.url);
+      setTimeout(() => loadImage(index + 1), DELAY);
     };
 
-    img.onerror = function () {
+    testImg.onerror = () => {
       if (retries < MAX_RETRIES) {
         console.warn(`Retrying ${item.url} (${retries + 1}/${MAX_RETRIES})`);
-        setTimeout(() => loadImage(index, retries + 1), 1000); // Retry after 1 second
+        setTimeout(() => loadImage(index, retries + 1), 1000);
       } else {
-        console.error(`Failed to load ${item.url} after ${MAX_RETRIES} attempts`);
-        loadImage(index + 1); // Skip to next image after max retries
+        console.error(`Failed to load ${item.url} after ${MAX_RETRIES} retries`);
+        createCard(item, null, true);
+        setTimeout(() => loadImage(index + 1), DELAY);
       }
     };
 
-    img.src = item.url;
+    testImg.src = item.url;
   }
 
   loadImage(0);
-</script>-->
+</script>
+
+<style>
+  .img-placeholder {
+    width: 100%;
+    height: 200px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #555;
+  }
+</style>
+
 
 
 
