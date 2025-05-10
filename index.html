@@ -224,29 +224,55 @@
   }
 
   function loadImage(index, retries = 0) {
-    if (index >= data.length) return;
+  if (index >= data.length) return;
 
-    const item = data[index];
-    const testImg = new Image();
+  const item = data[index];
 
-    testImg.onload = () => {
-      createCard(item, item.url);
+  // Create placeholder with spinner
+  const placeholder = document.createElement('div');
+  placeholder.className = 'photo-card loading';
+  placeholder.innerHTML = `
+    <div class="img-placeholder">
+      <div class="spinner"></div>
+    </div>
+    <div class="photo-info">
+      <h3>${item.heading}</h3>
+      <p>${item.caption}</p>
+      <p><strong>Want it on your wall?</strong> ${item.price}</p>
+    </div>
+  `;
+  gallery.appendChild(placeholder);
+
+  const testImg = new Image();
+
+  testImg.onload = () => {
+    placeholder.querySelector('.img-placeholder').outerHTML = `
+      <img src="${item.url}" alt="${item.heading}" />
+    `;
+    placeholder.classList.remove('loading');
+    setTimeout(() => loadImage(index + 1), DELAY);
+  };
+
+  testImg.onerror = () => {
+    if (retries < MAX_RETRIES) {
+      console.warn(`Retrying ${item.url} (${retries + 1}/${MAX_RETRIES})`);
+      setTimeout(() => {
+        gallery.removeChild(placeholder);
+        loadImage(index, retries + 1);
+      }, 1500);
+    } else {
+      console.error(`Failed to load ${item.url} after ${MAX_RETRIES} retries`);
+      const failedNode = placeholder.querySelector('.img-placeholder');
+      failedNode.innerHTML = '⚠️ Failed to load image.';
+      failedNode.classList.add('failed-placeholder');
+      placeholder.classList.add('failed');
       setTimeout(() => loadImage(index + 1), DELAY);
-    };
+    }
+  };
 
-    testImg.onerror = () => {
-      if (retries < MAX_RETRIES) {
-        console.warn(`Retrying ${item.url} (${retries + 1}/${MAX_RETRIES})`);
-        setTimeout(() => loadImage(index, retries + 1), 3000);
-      } else {
-        console.error(`Failed to load ${item.url} after ${MAX_RETRIES} retries`);
-        createCard(item, null, true);
-        setTimeout(() => loadImage(index + 1), DELAY);
-      }
-    };
+  testImg.src = item.url;
+}
 
-    testImg.src = item.url;
-  }
 
   loadImage(0);
 </script>
@@ -262,6 +288,14 @@
     font-style: italic;
     color: #555;
   }
+  .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
 </style>
 
 
