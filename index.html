@@ -203,7 +203,7 @@
   ];
 
   const gallery = document.getElementById('gallery');
-  const MAX_RETRIES = 10;
+  const MAX_RETRIES = 20;
   const DELAY = 100; // 1 second between images
 
   function createCard(item, imageUrl, failed = false) {
@@ -237,7 +237,7 @@
     testImg.onerror = () => {
       if (retries < MAX_RETRIES) {
         console.warn(`Retrying ${item.url} (${retries + 1}/${MAX_RETRIES})`);
-        setTimeout(() => loadImage(index, retries + 1), 1000);
+        setTimeout(() => loadImage(index, retries + 1), 3000);
       } else {
         console.error(`Failed to load ${item.url} after ${MAX_RETRIES} retries`);
         createCard(item, null, true);
