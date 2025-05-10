@@ -31,10 +31,18 @@
 
   <script>
     const data = [
-      { filename: "photo4.jpg", heading: "Still Reflections", caption: "Trees and sky merge in still waters.", price: "₹4200" },
-      { filename: "photo3.jpg", heading: "Alone in Light", caption: "A solitary lamp in the mist.", price: "₹4500" },
-      { filename: "photo2.jpg", heading: "Monsoon Haze", caption: "Raindrops on an old temple stair.", price: "₹3500" },
-      { filename: "photo1.jpg", heading: "Dusk Dreams", caption: "A quiet sunset whispers in the hills.", price: "₹4000" }
+	{ filename: "Hallway.jpg", heading: "Hallway", caption: "Hallway — where the present walks and the past quietly watches", price: "Contact Me" },
+      { filename: "Roddur.jpg", heading: "রোদ্দুর", caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", price: "Contact Me" },
+      { filename: "Sil.jpg", heading: "Silhouette", caption: "Where light meets shadow, and the day whispers its last goodbye", price: "Contact Me" },
+      { filename: "Sands of Time.jpg", heading: "Sands of Time", caption: "A slow trail through the sands of time — every ripple a story, every step a quiet persistence.", price: "Contact Me" },
+	  { filename: "Many Doors.jpg", heading: "Sands of Time", caption: "Many doors, each a whisper — of places I’ve yet to meet within myself", price: "Contact Me" },
+	  { filename: "Troops of Occupation.jpg", heading: "Troops of Occupation", caption: "Troops of occupation, not of war but of waves", price: "Contact Me" },
+	  { filename: "Tulips.jpg", heading: "Tulips", caption: "Meet my new roommate. She doesn't talk much, but she vibes and breathes (really!)", price: "Contact Me" },
+	  { filename: "Sunset.jpg", heading: "Sunset", caption: "Every sunset carries a quiet question: ending or beginning?", price: "Contact Me" },
+	  { filename: "Hues.jpg", heading: "Glow", caption: "She glows in colors bold and bright, watches in silence, guards with light", price: "Contact Me" },
+	  { filename: "Boho.jpg", heading: "A Path to Bohemia", caption: "Into the woods I go, chasing stillness and bohemian dreams", price: "Contact Me" },
+	  { filename: "Fishery.jpg", heading: "Livelihood", caption: "More than a livelihood — a silent pact between man and the tide", price: "Contact Me" },
+	  { filename: "Bridge.jpg", heading: "Bridges", caption: "Bridges do more than connect places—they carry dreams, burdens, and the weight of life itself. ", price: "Contact Me" }
     ];
     const gallery = document.getElementById('gallery');
     data.forEach(item => {
@@ -50,6 +58,50 @@
       `;
       gallery.appendChild(card);
     });
-  </script>
+  </script>-->
+  <!--<script>
+	  const data = [
+		{ 
+		  url: "https://drive.google.com/file/d/1igi70k8h4ol749b9dg_009oxdXwiFOSe/view?usp=sharing", 
+		  heading: "রোদ্দুর", 
+		  caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", 
+		  price: "₹4200" 
+		},
+		{ 
+		  url: "https://example.com/photo3.jpg", 
+		  heading: "Alone in Light", 
+		  caption: "A solitary lamp in the mist.", 
+		  price: "₹4500" 
+		},
+		{ 
+		  url: "https://example.com/photo2.jpg", 
+		  heading: "Monsoon Haze", 
+		  caption: "Raindrops on an old temple stair.", 
+		  price: "₹3500" 
+		},
+		{ 
+		  url: "https://example.com/photo1.jpg", 
+		  heading: "Dusk Dreams", 
+		  caption: "A quiet sunset whispers in the hills.", 
+		  price: "₹4000" 
+		}
+	  ];
+
+	  const gallery = document.getElementById('gallery');
+	  data.forEach(item => {
+		const card = document.createElement('div');
+		card.className = 'photo-card';
+		card.innerHTML = `
+		  <img src="${item.url}" alt="${item.heading}" />
+		  <div class="photo-info">
+			<h3>${item.heading}</h3>
+			<p>${item.caption}</p>
+			<p><strong>Price:</strong> ${item.price}</p>
+		  </div>
+		`;
+		gallery.appendChild(card);
+	  });
+</script>->>
+
 </body>
 </html>
