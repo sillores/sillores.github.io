@@ -141,3 +141,29 @@ footer a:hover {
   align-items: center; /* instead of flex-start */
 }
 
+@media (max-width: 768px) {
+  .header-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-logo-block {
+    margin: 0 auto 15px auto;
+    max-height: 140px;
+  }
+
+  .header-text {
+    align-items: center;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .header-text p {
+    font-size: 0.95rem;
+  }
+}
+
+
