@@ -50,166 +50,19 @@
     <p>Contact: <a href="mailto:bineet.photography@gmail.com">bineet.photography@gmail.com</a></p>
   </footer>
 
-  <!--<script>
-    const data = [
-	{ filename: "Hallway.jpg", heading: "Hallway", caption: "Hallway — where the present walks and the past quietly watches", price: "Ping Me!" },
-      { filename: "Roddur.jpg", heading: "রোদ্দুর", caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", price: "Ping Me!" },
-      { filename: "Sil.jpg", heading: "Silhouette", caption: "Where light meets shadow, and the day whispers its last goodbye", price: "Ping Me!" },
-      { filename: "Sands of Time.jpg", heading: "Sands of Time", caption: "A slow trail through the sands of time — every ripple a story, every step a quiet persistence.", price: "Ping Me!" },
-	  { filename: "Many Doors.jpg", heading: "Sands of Time", caption: "Many doors, each a whisper — of places I’ve yet to meet within myself", price: "Ping Me!" },
-	  { filename: "Troops of Occupation.jpg", heading: "Troops of Occupation", caption: "Troops of occupation, not of war but of waves", price: "Ping Me!" },
-	  { filename: "Tulips.jpg", heading: "Tulips", caption: "Meet my new roommate. She doesn't talk much, but she vibes and breathes (really!)", price: "Ping Me!" },
-	  { filename: "Sunset.jpg", heading: "Sunset", caption: "Every sunset carries a quiet question: ending or beginning?", price: "Ping Me!" },
-	  { filename: "Hues.jpg", heading: "Glow", caption: "She glows in colors bold and bright, watches in silence, guards with light", price: "Ping Me!" },
-	  { filename: "Boho.jpg", heading: "A Path to Bohemia", caption: "Into the woods I go, chasing stillness and bohemian dreams", price: "Ping Me!" },
-	  { filename: "Fishery.jpg", heading: "Livelihood", caption: "More than a livelihood — a silent pact between man and the tide", price: "Ping Me!" },
-	  { filename: "Bridge.jpg", heading: "Bridges", caption: "Bridges do more than connect places—they carry dreams, burdens, and the weight of life itself. ", price: "Ping Me!" }
-    ];
-    const gallery = document.getElementById('gallery');
-    data.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'photo-card';
-      card.innerHTML = `
-        <img src="images/${item.filename}" alt="${item.heading}" />
-        <div class="photo-info">
-          <h3>${item.heading}</h3>
-          <p>${item.caption}</p>
-          <p><strong>Price:</strong> ${item.price}</p>
-        </div>
-      `;
-      gallery.appendChild(card);
-    });
-  </script>-->
-  <!--<script>
-	  const data = [
-		{ 
-		  url: "https://raw.githubusercontent.com/bineet-coderep/Webpage/refs/heads/master/img/Bineet3.jpg?token=GHSAT0AAAAAAC6MP7RXYGBJY3QSOA6KGTQ62A6UYWQ", 
-		  heading: "রোদ্দুর", 
-		  caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", 
-		  price: "₹4200" 
-		},
-		{ 
-		  url: "https://example.com/photo3.jpg", 
-		  heading: "Alone in Light", 
-		  caption: "A solitary lamp in the mist.", 
-		  price: "₹4500" 
-		},
-		{ 
-		  url: "https://example.com/photo2.jpg", 
-		  heading: "Monsoon Haze", 
-		  caption: "Raindrops on an old temple stair.", 
-		  price: "₹3500" 
-		},
-		{ 
-		  url: "https://example.com/photo1.jpg", 
-		  heading: "Dusk Dreams", 
-		  caption: "A quiet sunset whispers in the hills.", 
-		  price: "₹4000" 
-		}
-	  ];
 
-	  const gallery = document.getElementById('gallery');
-	  data.forEach(item => {
-		const card = document.createElement('div');
-		card.className = 'photo-card';
-		card.innerHTML = `
-		  <img src="${item.url}" alt="${item.heading}" />
-		  <div class="photo-info">
-			<h3>${item.heading}</h3>
-			<p>${item.caption}</p>
-			<p><strong>Price:</strong> ${item.price}</p>
-		  </div>
-		`;
-		gallery.appendChild(card);
-	  });
-</script>-->
 
-<!--<script>
-    const data = [
-	  { url: "https://tinyurl.com/4u83d4cp", heading: "Shot of The Moon", caption: " A night where stars whisper and the moon shoots through the dark like a dream", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/mrvrs3ra", heading: "Shared Waters", caption: "A quiet rhythm of life — humble hands, shared waters, and the harmony of growing together", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/3mr7b7kt", heading: "Hallway", caption: "Hallway — where the present walks and the past quietly watches", price: "Ping Me!" },
-      { url: "https://tinyurl.com/3zysmep9", heading: "রোদ্দুর", caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", price: "Ping Me!" },
-      { url: "https://tinyurl.com/eak5hynx", heading: "Silhouette", caption: "Where light meets shadow, and the day whispers its last goodbye", price: "Ping Me!" },
-      { url: "https://tinyurl.com/43bczrh4", heading: "Sands of Time", caption: "A slow trail through the sands of time — every ripple a story, every step a quiet persistence.", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/33retn5b", heading: "Many Doors", caption: "Many doors, each a whisper — of places I’ve yet to meet within myself", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/5f3eb9au", heading: "Troops of Occupation", caption: "Troops of occupation, not of war but of waves", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/yptp9yen", heading: "Tulips", caption: "Meet my new roommate. She doesn't talk much, but she vibes and breathes (really!)", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/udbsxx3e", heading: "Sunset", caption: "Every sunset carries a quiet question: ending or beginning?", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/2w2vu6nd", heading: "Glow", caption: "She glows in colors bold and bright, watches in silence, guards with light", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/25bfh47r", heading: "A Path to Bohemia", caption: "Into the woods I go, chasing stillness and bohemian dreams", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/mw3m33zv", heading: "Livelihood", caption: "More than a livelihood — a silent pact between man and the tide", price: "Ping Me!" },
-	  { url: "https://tinyurl.com/32ttxm29", heading: "Bridges", caption: "Bridges do more than connect places—they carry dreams, burdens, and the weight of life itself. ", price: "Ping Me!" }
-    ];
-    const gallery = document.getElementById('gallery');
-	  data.forEach(item => {
-		const card = document.createElement('div');
-		card.className = 'photo-card';
-		card.innerHTML = `
-		  <img src="${item.url}" alt="${item.heading}" />
-		  <div class="photo-info">
-			<h3>${item.heading}</h3>
-			<p>${item.caption}</p>
-			<p><strong>Price:</strong> ${item.price}</p>
-		  </div>
-		`;
-		gallery.appendChild(card);
-    });
-  </script>-->
-  <!--<script>
-  const data = [
-    { url: "https://tinyurl.com/4u83d4cp", heading: "Shot of The Moon", caption: " A night where stars whisper and the moon shoots through the dark like a dream", price: "Ping Me!" },
-    { url: "https://tinyurl.com/mrvrs3ra", heading: "Shared Waters", caption: "A quiet rhythm of life — humble hands, shared waters, and the harmony of growing together", price: "Ping Me!" },
-    { url: "https://tinyurl.com/3mr7b7kt", heading: "Hallway", caption: "Hallway — where the present walks and the past quietly watches", price: "Ping Me!" },
-    { url: "https://tinyurl.com/3zysmep9", heading: "রোদ্দুর", caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", price: "Ping Me!" },
-    { url: "https://tinyurl.com/eak5hynx", heading: "Silhouette", caption: "Where light meets shadow, and the day whispers its last goodbye", price: "Ping Me!" },
-    { url: "https://tinyurl.com/43bczrh4", heading: "Sands of Time", caption: "A slow trail through the sands of time — every ripple a story, every step a quiet persistence.", price: "Ping Me!" },
-    { url: "https://tinyurl.com/33retn5b", heading: "Many Doors", caption: "Many doors, each a whisper — of places I’ve yet to meet within myself", price: "Ping Me!" },
-    { url: "https://tinyurl.com/5f3eb9au", heading: "Troops of Occupation", caption: "Troops of occupation, not of war but of waves", price: "Ping Me!" },
-    { url: "https://tinyurl.com/yptp9yen", heading: "Tulips", caption: "Meet my new roommate. She doesn't talk much, but she vibes and breathes (really!)", price: "Ping Me!" },
-    { url: "https://tinyurl.com/udbsxx3e", heading: "Sunset", caption: "Every sunset carries a quiet question: ending or beginning?", price: "Ping Me!" },
-    { url: "https://tinyurl.com/2w2vu6nd", heading: "Glow", caption: "She glows in colors bold and bright, watches in silence, guards with light", price: "Ping Me!" },
-    { url: "https://tinyurl.com/25bfh47r", heading: "A Path to Bohemia", caption: "Into the woods I go, chasing stillness and bohemian dreams", price: "Ping Me!" },
-    { url: "https://tinyurl.com/mw3m33zv", heading: "Livelihood", caption: "More than a livelihood — a silent pact between man and the tide", price: "Ping Me!" },
-    { url: "https://tinyurl.com/32ttxm29", heading: "Bridges", caption: "Bridges do more than connect places—they carry dreams, burdens, and the weight of life itself.", price: "Ping Me!" }
-  ];
-
-  const gallery = document.getElementById('gallery');
-
-  function loadImages(batchSize = 2, delay = 3000) {
-    let index = 0;
-
-    function loadBatch() {
-      const batch = data.slice(index, index + batchSize);
-      batch.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'photo-card';
-        card.innerHTML = `
-          <img src="${item.url}" alt="${item.heading}" loading="lazy" />
-          <div class="photo-info">
-            <h3>${item.heading}</h3>
-            <p>${item.caption}</p>
-			<p></p>
-            <p><strong>Want it on your wall?</strong> ${item.price}</p>
-          </div>
-        `;
-        gallery.appendChild(card);
-      });
-      index += batchSize;
-      if (index < data.length) {
-        setTimeout(loadBatch, delay);
-      }
-    }
-
-    loadBatch();
-  }
-
-  loadImages(); // You can tweak batch size & delay if needed
-</script>-->
 <script>
   const data = [
+  
+	{ url: "https://i.postimg.cc/XYqVMjL1/Half-Ship.jpg", heading: "Blurry", caption: "A blurry world beyond the glass — like a memory not ready to fade.", price: "Ping Me!" },
+	{ url: "https://i.postimg.cc/8zVnZn7s/Serene.jpg", heading: "Serene", caption: "Where life is simple, hearts are full, and beauty speaks in silence.", price: "Ping Me!" },
+  
+    { url: "https://i.postimg.cc/XYqVMjL1/Half-Ship.jpg", heading: "Like Tired Birds", caption: "In the golden hush of sunset, we return — we float back to our nests like tired birds.", price: "Ping Me!" },
 
     { url: "https://i.postimg.cc/jdSY8dqc/Sonajhuri.jpg", heading: "Sonajhuri Haat", caption: "Where commerce hums and the heart finds its rhythm", price: "Ping Me!" },
+	
+	{ url: "https://i.postimg.cc/zvq8G1zL/Tuscaloosa.jpg", heading: "Evening in Tuscaloosa", caption: "The storm carries the scent of a home oceans away.", price: "Ping Me!" },
 	
 	{ url: "https://i.postimg.cc/fRgvLZbn/The-Cost-of-a-Pause.jpg", heading: "The Cost of a Pause", caption: "If I let my feet rest now, my dreams may never wake again", price: "Ping Me!" },
 
