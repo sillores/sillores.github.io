@@ -55,7 +55,7 @@
 <script>
   const data = [
   
-	{ url: "https://i.postimg.cc/XYqVMjL1/Half-Ship.jpg", heading: "Blurry", caption: "A blurry world beyond the glass — like a memory not ready to fade.", price: "Ping Me!" },
+	{ url: "https://i.postimg.cc/g2qtQqhs/Blurry.jpg", heading: "Blurry", caption: "A blurry world beyond the glass — like a memory not ready to fade.", price: "Ping Me!" },
 	{ url: "https://i.postimg.cc/8zVnZn7s/Serene.jpg", heading: "Serene", caption: "Where life is simple, hearts are full, and beauty speaks in silence.", price: "Ping Me!" },
   
     { url: "https://i.postimg.cc/XYqVMjL1/Half-Ship.jpg", heading: "Like Tired Birds", caption: "In the golden hush of sunset, we return — we float back to our nests like tired birds.", price: "Ping Me!" },
