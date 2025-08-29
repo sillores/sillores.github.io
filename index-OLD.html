@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,14 @@
   </script>
 </head>
 <body>
+  <!--<header>
+    <h1>Silhouette Lores</h1>
+    <p>
+      Ping Me: <a href="https://www.instagram.com/silhouettelores/" target="_blank" class="link">@silhouettelores</a> | <a href="mailto:ghosh.bineet22@gmail.com" class="link">ghosh.bineet22@gmail.com</a>
+	</p>
+    <p>Love what you see? Reach out to make it yours.</p>
+    <p>All photos &copy; <a href="https://www.instagram.com/ghoshbineet/" target="_blank" class="link">Bineet Ghosh</a>. All rights reserved.</p>
+  </header>-->
 
   <header class="site-header">
   <div class="header-flex">
@@ -169,10 +178,7 @@
 
   testImg.onload = () => {
     placeholder.querySelector('.img-placeholder').outerHTML = `
-      <div class="image-container">
-        <img src="${item.url}" alt="${item.heading}" />
-        <div class="watermark">© Bineet Ghosh</div>
-      </div>
+      <img src="${item.url}" alt="${item.heading}" />
     `;
     placeholder.classList.remove('loading');
     setTimeout(() => loadImage(index + 1), DELAY);
@@ -202,8 +208,86 @@
   loadImage(0);
 </script>
 
+<style>
+  .img-placeholder {
+    width: 100%;
+    height: 200px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #555;
+  }
+  .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+</style>
 
+<!--<script>
+  const data = [
+    { url: "https://i.postimg.cc/PrbD91VV/Sunset.jpg", heading: "Shot of The Moon", caption: "A night where stars whisper and the moon shoots through the dark like a dream", price: "Ping Me!" },
+    { url: "https://i.postimg.cc/PrbD91VV/Sunset.jpg", heading: "Shared Waters", caption: "A quiet rhythm of life — humble hands, shared waters, and the harmony of growing together", price: "Ping Me!" },
+    // Add more images as needed
+  ];
 
+  const gallery = document.getElementById('gallery');
+
+  function loadImages() {
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'photo-card';
+      card.innerHTML = `
+        <div class="image-container">
+          <img src="${item.url}" alt="${item.heading}" />
+          <div class="overlay"></div>
+        </div>
+        <div class="photo-info">
+          <h3>${item.heading}</h3>
+          <p>${item.caption}</p>
+          <p><strong>Want it on your wall?</strong> ${item.price}</p>
+        </div>
+      `;
+      gallery.appendChild(card);
+    });
+  }
+
+  loadImages();
+</script>
+
+<style>
+  .photo-card {
+    position: relative;
+    width: 300px; /* Adjust as needed */
+    margin: 10px;
+  }
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .image-container img {
+    width: 100%;
+    display: block;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+  .photo-info {
+    padding: 10px;
+    background: #f0f0f0;
+  }
+</style>-->
 
 
 
