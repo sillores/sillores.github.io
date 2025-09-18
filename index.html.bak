@@ -40,41 +40,53 @@
     <p>Follow on <a href="https://www.instagram.com/silhouettelores/" target="_blank">Instagram</a></p>
     <p>Contact: <a href="mailto:bineet.photography@gmail.com">bineet.photography@gmail.com</a></p>
   </footer>
+  
+<!--
+{ url: "https://i.postimg.cc/4yPsJ8B6/The-Quiet-Home.jpg", heading: "The Quiet Home", caption: "A home where peace resides and nature whispers its timeless tales.", price: "Ping Me!" },
+  { url: "https://i.postimg.cc/PJTdnGzf/Standing-Tall.jpg", heading: "Standing Tall", caption: "Alone, it stands tall - undaunted by the storm. The tree teaches: walk your path alone.", price: "Ping Me!" },
+  { url: "https://i.postimg.cc/G20czT4y/The-River-that-Took-the-Sun-Away.jpg", heading: "The River that Took the Sun Away", caption: "I stood still, watching the river carry the sunset away.", price: "Ping Me!" },
+
+	{ url: "https://i.postimg.cc/XvhWxKfv/Bengal.jpg", heading: "Bengal", caption: "Where even silence speaks in poetry, and every soul carries art.", price: "Ping Me!" },
+	{ url: "https://i.postimg.cc/g2qtQqhs/Blurry.jpg", heading: "Blurry", caption: "A blurry world beyond the glass — like a memory not ready to fade.", price: "Ping Me!" },
+	{ url: "https://i.postimg.cc/8zVnZn7s/Serene.jpg", heading: "Serene", caption: "Where life is simple, hearts are full, and beauty speaks in silence.", price: "Ping Me!" }, 
+
+  { url: "https://i.postimg.cc/wTMzdkYp/City-Lights.jpg", heading: "Reflections of The City", caption: "Tallest towers, timeless culture—Kolkata reflected in Nandan’s yard.", price: "Ping Me!" },
+	
+	{ url: "https://i.postimg.cc/fTLwJ30x/c6bc33b4-2768-4ae1-bb04-ba4152c2758a.jpg", heading: "Echoes of Jorasanko", caption: "A doorway to timelessness — Jorasanko whispers still.", price: "Ping Me!"},
+  
+	{ url: "https://i.postimg.cc/mkk6nKTf/Thakurbari.jpg", heading: "Thakurbari", caption: "The halls of Thakurbari still echo Tagore’s verses, soft as morning light.", price: "Ping Me!" },
+-->
+
 
 
 
 <script>
   const data = [
   
-  { url: "https://i.postimg.cc/4yPsJ8B6/The-Quiet-Home.jpg", heading: "The Quiet Home", caption: "A home where peace resides and nature whispers its timeless tales.", price: "Ping Me!" },
-  { url: "https://i.postimg.cc/PJTdnGzf/Standing-Tall.jpg", heading: "Standing Tall", caption: "Alone, it stands tall - undaunted by the storm. The tree teaches: walk your path alone.", price: "Ping Me!" },
-  { url: "https://i.postimg.cc/G20czT4y/The-River-that-Took-the-Sun-Away.jpg", heading: "The River that Took the Sun Away", caption: "I stood still, watching the river carry the sunset away.", price: "Ping Me!" },
-
-	{ url: "https://i.postimg.cc/XvhWxKfv/Bengal.jpg", heading: "Bengal", caption: "Where even silence speaks in poetry, and every soul carries art.", price: "Ping Me!" },
-	{ url: "https://i.postimg.cc/g2qtQqhs/Blurry.jpg", heading: "Blurry", caption: "A blurry world beyond the glass — like a memory not ready to fade.", price: "Ping Me!" },
-	{ url: "https://i.postimg.cc/8zVnZn7s/Serene.jpg", heading: "Serene", caption: "Where life is simple, hearts are full, and beauty speaks in silence.", price: "Ping Me!" },
-
-
-	{ url: "https://i.postimg.cc/3Jhhc7tR/8ff3ba6b-a951-4f35-8f44-46775fec393f.jpg", heading: "Incompleteness That Holds Infinity", caption: "A face yet unfinished, but already eternal.", price: "Ping Me!" },
- 
-  { url: "https://i.postimg.cc/gjVW2B2m/37db49dc-6ae4-4256-bed2-157903e4f8fe.jpg", heading: "Walking Through Stories in Clay", caption: "A walk through Kumortuli — where stories of Ma er nirman pass from one generation to the next.", price: "Ping Me!" },
- 
-
-  { url: "https://i.postimg.cc/wTMzdkYp/City-Lights.jpg", heading: "Reflections of a City", caption: "Tallest towers, timeless culture—Kolkata reflected in Nandan’s yard.", price: "Ping Me!" },
-	
-	{ url: "https://i.postimg.cc/fTLwJ30x/c6bc33b4-2768-4ae1-bb04-ba4152c2758a.jpg", heading: "Echoes of Jorasanko", caption: "A doorway to timelessness — Jorasanko whispers still.", price: "Ping Me!"},
+	{ url: "https://i.postimg.cc/SsPr62NJ/Sep26.jpg", heading: "Maha Panchami", caption: "First heartbeat of the festival — When lights shine brighter, the air stirs with excitement, and every heart fills with joy.", price: "Ping Me!" },
   
-	{ url: "https://i.postimg.cc/mkk6nKTf/Thakurbari.jpg", heading: "Thakurbari", caption: "The halls of Thakurbari still echo Tagore’s verses, soft as morning light.", price: "Ping Me!" },
+	{ url: "https://i.postimg.cc/c6yBzp3W/Sep22.jpg", heading: "Where Passion Shapes Faith", caption: "With each careful touch, the pandal comes alive — a labor of love, devotion, and unspoken artistry.", price: "Ping Me!" },
+	
+	
+	{ url: "https://i.postimg.cc/8kJ8qLvX/Sep18.jpg", heading: "Awaiting the Dawn of Celebration", caption: "The pandal sleeps, waiting to awaken in light and devotion", price: "Ping Me!" },
+	
+	
+	{ url: "https://i.postimg.cc/3Jhhc7tR/8ff3ba6b-a951-4f35-8f44-46775fec393f.jpg", heading: "Incompleteness That Holds Infinity", caption: "A face yet unfinished, but already eternal.", price: "Ping Me!" },
+	
+	{ url: "https://i.postimg.cc/ZnyLVbCj/Sep24.jpg", heading: "Meye Asche Bari", caption: "The pandal takes shape, one stroke at a time — My home being adorned, for the daughter is coming home.", price: "Ping Me!" },
+	
+	
+	
+	
+	
+	
+	
+	
+	{ url: "https://i.postimg.cc/gjVW2B2m/37db49dc-6ae4-4256-bed2-157903e4f8fe.jpg", heading: "Walking Through Stories in Clay", caption: "A walk through Kumortuli — where stories of Ma er nirman pass from one generation to the next.", price: "Ping Me!" },
+	
   
 	{ url: "https://i.postimg.cc/wvQ6sLVk/6e80f55a-118c-47ee-8a75-4fc6d247770f.jpg", heading: "Steel and Stillness", caption: " Where water frames the steel, I caught myself pausing—just long enough to feel something shift within.", price: "Ping Me!" },
-  
-  
-  
-  
-  
-  
-  
-  
+ 
 
 	{ url: "https://i.postimg.cc/PrBF66c9/Carriage.jpg", heading: "Carriage", caption: "A blue train carriage, worn by time, with rust telling stories of forgotten journeys.", price: "Ping Me!" },
 	
