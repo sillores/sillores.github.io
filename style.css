@@ -253,4 +253,21 @@ footer a:hover {
 .carousel-btn.next { right: 10px; }
 
 
+/* --- Centered top menu under header --- */
+.top-menu {
+  text-align: center;
+  margin-top: 0.6rem;
+}
 
+.top-menu .nav-link {
+  color: #ffb347;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.top-menu .nav-link:hover {
+  color: #fff;
+}
