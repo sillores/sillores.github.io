@@ -202,7 +202,8 @@
   ],
   heading: "Kumortuli Walk",
   caption: "Through the narrow lanes of clay and devotion — where faith takes shape, and the goddess slowly awakens in every touch of the artist’s hand.",
-  price: "Ping Me!"
+  price: "Ping Me!",
+  archive: true
 },
 
 { url: "https://i.postimg.cc/wvQ6sLVk/6e80f55a-118c-47ee-8a75-4fc6d247770f.jpg", heading: "Steel and Stillness", caption: " Where water frames the steel, I caught myself pausing—just long enough to feel something shift within.", price: "Ping Me!" },
@@ -364,15 +365,22 @@ function loadImage(index, retries = 0) {
   const placeholder = document.createElement('div');
   placeholder.className = 'photo-card loading';
   placeholder.innerHTML = `
-    <div class="img-placeholder">
-      <div class="spinner"></div>
-    </div>
-    <div class="photo-info">
-      <h3>${item.heading || ''}</h3>
-      <p>${item.caption || ''}</p>
-      <p><strong>Want it on your wall?</strong> ${item.price || 'Ping Me!'}</p>
-    </div>
-  `;
+  <div class="img-placeholder">
+    <div class="spinner"></div>
+  </div>
+  <div class="photo-info">
+    <h3>${item.heading || ''}</h3>
+    <p>${item.caption || ''}</p>
+    <p><strong>Want it on your wall?</strong> ${item.price || 'Ping Me!'}</p>
+    ${
+      item.archive
+        ? `<p><a href="archive.html" target="_blank" class="archive-link">View in Archive →</a></p>`
+        : ''
+    }
+
+  </div>
+`;
+
   gallery.appendChild(placeholder);
 
   // if no usable URL at all, mark failed and continue
