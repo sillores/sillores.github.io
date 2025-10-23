@@ -75,23 +75,21 @@
 <script>
   const data = [
 
-  { url: "https://i.postimg.cc/g2qtQqhs/Blurry.jpg", heading: "Blurry", caption: "A blurry world beyond the glass — like a memory not ready to fade.", price: "Ping Me!" },
+  { url: "https://i.postimg.cc/g2qtQqhs/Blurry.jpg", heading: "Blurry", caption: "A blurry world beyond the glass — like a memory not ready to fade.", price: "Ping Me!", visibleFrom: "2025-10-31" },
   
-  
-  { urls: [
-  "https://i.postimg.cc/dVpkX4Bc/The-River-of-Life.jpg",
-  "https://i.postimg.cc/K8wkVJNc/The-River-of-Life-2.jpg"
-  ], heading: "The River of Life", caption: "The river flows like life — uncertain, endless, and beautifully alone.", price: "Ping Me!" 
-  },
-
   
   { urls: [
   "https://i.postimg.cc/xdmJSMxM/The-River-of-Time.png",
   "https://i.postimg.cc/FKSdQ3Wk/The-River-of-Time-2.png"
-  ], heading: "The River of Time", caption: "Boat of life. River of time. Silence as company.", price: "Ping Me!"},
+  ], heading: "The River of Time", caption: "Boat of life. River of time. Silence as company.", price: "Ping Me!", visibleFrom: "2025-10-29"},
   
+  { urls: [
+  "https://i.postimg.cc/dVpkX4Bc/The-River-of-Life.jpg",
+  "https://i.postimg.cc/K8wkVJNc/The-River-of-Life-2.jpg"
+  ], heading: "The River of Life", caption: "The river flows like life — uncertain, endless, and beautifully alone.", price: "Ping Me!", visibleFrom: "2025-10-26" },
+
   
-  { url: "https://i.postimg.cc/8zVnZn7s/Serene.jpg", heading: "Serene", caption: "Where life is simple, hearts are full, and beauty speaks in silence.", price: "Ping Me!" }, 
+  { url: "https://i.postimg.cc/8zVnZn7s/Serene.jpg", heading: "Serene", caption: "Where life is simple, hearts are full, and beauty speaks in silence.", price: "Ping Me!", visibleFrom: "2025-10-24" }, 
   
   
   { url: "https://i.postimg.cc/sxfJTb84/d6f170e3-ff08-4185-b26d-e91d3827452e.jpg", heading: "The Old Guardian", caption: "The old tree stands as a Guardian of History — of the stories the Monuments hold.", price: "Ping Me!" },
@@ -402,12 +400,32 @@
   }
 
 
+function isVisibleNow(item) {
+  if (!item.visibleFrom) return true; // no scheduling => always visible
+  // Parse YYYY-MM-DD as a local date (midnight)
+  const parts = item.visibleFrom.split('-').map(Number);
+  if (parts.length !== 3 || parts.some(isNaN)) return true; // bad date => fail open
+  const start = new Date(parts[0], parts[1] - 1, parts[2]); // local midnight
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return today >= start;
+}
+
+
+
 function loadImage(index, retries = 0) {
   if (index >= data.length) return;
 
   const item = data[index];
   // primaryUrl: single-image items use item.url, carousel items use first item.urls entry
   const primaryUrl = item.url || (Array.isArray(item.urls) && item.urls.length ? item.urls[0] : null);
+
+  if (!isVisibleNow(item)) {
+  // Skip rendering this not-yet-live item and continue
+  setTimeout(() => loadImage(index + 1), DELAY);
+  return;
+  }
+
 
   // create placeholder with spinner & info (same as before)
   const placeholder = document.createElement('div');
