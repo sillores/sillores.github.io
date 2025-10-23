@@ -364,14 +364,18 @@
 
   // Hook up carousel controls if present
   if (item.urls && Array.isArray(item.urls)) {
-    const slides = card.querySelectorAll('.carousel-slide');
-    const prev = card.querySelector('.carousel-btn.prev');
-    const next = card.querySelector('.carousel-btn.next');
+    const slides = placeholder.querySelectorAll('.carousel-slide');
+    const prev = placeholder.querySelector('.carousel-btn.prev');
+    const next = placeholder.querySelector('.carousel-btn.next');
+    const dots = placeholder.querySelectorAll('.carousel-dot'); // NEW
     let current = 0;
 
-    function showSlide(index) {
-      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    function showSlide(n) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === n));
+      dots.forEach((d, i) => d.classList.toggle('active', i === n)); // NEW
     }
+
+
 
     prev.addEventListener('click', () => {
       current = (current - 1 + slides.length) % slides.length;
@@ -382,6 +386,18 @@
       current = (current + 1) % slides.length;
       showSlide(current);
     });
+
+    // Dots click -> jump to slide
+    dots.forEach((d, i) => {
+      d.addEventListener('click', () => {
+        current = i;
+        console.log("Hello, " + i);
+        showSlide(current);
+      });
+    });
+
+
+
   }
   }
 
@@ -431,17 +447,23 @@ function loadImage(index, retries = 0) {
     // If this item is a carousel (multiple urls), build the carousel slides
     if (Array.isArray(item.urls) && item.urls.length > 0) {
       const slidesHtml = item.urls
-        .map((u, i) => `<div class="carousel-slide${i === 0 ? ' active' : ''}"><img src="${u}" alt="${item.heading || ''}" /></div>`)
-        .join('');
+      .map((u, i) => `<div class="carousel-slide${i === 0 ? ' active' : ''}"><img src="${u}" alt="${item.heading || ''}" /></div>`)
+      .join('');
+      const dotsHtml = item.urls
+      .map((_, i) => `<button class="carousel-dot${i === 0 ? ' active' : ''}" aria-label="Go to slide ${i+1}"></button>`)
+      .join('');
+
 
       placeholder.querySelector('.img-placeholder').outerHTML = `
-        <div class="image-container carousel-container-inner">
-          ${slidesHtml}
-          <div class="watermark">© Bineet Ghosh</div>
-          <button class="carousel-btn prev" aria-label="Prev">&#10094;</button>
-          <button class="carousel-btn next" aria-label="Next">&#10095;</button>
-        </div>
-      `;
+      <div class="image-container carousel-container-inner">
+        ${slidesHtml}
+        <div class="watermark">© Bineet Ghosh</div>
+        <button class="carousel-btn prev" aria-label="Prev">&#10094;</button>
+        <button class="carousel-btn next" aria-label="Next">&#10095;</button>
+        <div class="carousel-dots">${dotsHtml}</div>
+      </div>
+    `;
+
     } else {
       // Single-image card (keep original behavior)
       placeholder.querySelector('.img-placeholder').outerHTML = `
@@ -459,11 +481,14 @@ function loadImage(index, retries = 0) {
       const slides = placeholder.querySelectorAll('.carousel-slide');
       const prev = placeholder.querySelector('.carousel-btn.prev');
       const next = placeholder.querySelector('.carousel-btn.next');
+      const dots = placeholder.querySelectorAll('.carousel-dot'); // NEW
       let current = 0;
 
       function showSlide(n) {
         slides.forEach((s, i) => s.classList.toggle('active', i === n));
+        dots.forEach((d, i) => d.classList.toggle('active', i === n)); // NEW
       }
+
 
       prev.addEventListener('click', () => {
         current = (current - 1 + slides.length) % slides.length;

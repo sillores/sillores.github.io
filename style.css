@@ -282,3 +282,9 @@ footer a:hover {
   color: #fff;
   text-decoration: underline;
 }
+
+.carousel-dots { display:flex; gap:6px; justify-content:center; margin:8px 0 0; }
+.carousel-dot { width:8px; height:8px; border-radius:50%; background:#666; border:none; cursor:pointer; }
+.carousel-dot.active { background:#ffb347; }
+
+
