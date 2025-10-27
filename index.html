@@ -630,7 +630,7 @@ function parseYYYYMMDD(s) {
 const now_ = new Date();
 const today_ = new Date(now_.getFullYear(), now_.getMonth(), now_.getDate());
 
-const UPCOMING_MAX = 2;               // keep your cap (can reuse your existing const)
+const UPCOMING_MAX = 1;               // keep your cap (can reuse your existing const)
 const _upcomingSorted = data
   .map((item, i) => ({ i, d: item.visibleFrom ? parseYYYYMMDD(item.visibleFrom) : null }))
   .filter(x => x.d && x.d > today_)    // strictly in the future
