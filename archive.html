@@ -217,6 +217,18 @@
 
 
    const gallery = document.getElementById('gallery');
+
+    // Visibility gate: items without visibleFrom are always visible.
+    function isVisibleNow(item) {
+      if (!item.visibleFrom) return true;
+      const parts = String(item.visibleFrom).split('-').map(Number);
+      if (parts.length !== 3 || parts.some(isNaN)) return true; // bad date -> visible
+      const start = new Date(parts[0], parts[1] - 1, parts[2]); // local midnight
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return today >= start;
+    }
+
   const MAX_RETRIES = 2;
   const DELAY = 25; // 1 second between images
 
@@ -304,7 +316,29 @@ function loadImage(index, retries = 0) {
   if (index >= data.length) return;
 
   const item = data[index];
-  // primaryUrl: single-image items use item.url, carousel items use first item.urls entry
+  
+    // If scheduled for the future, render a blurred Coming Soon card and continue
+    if (!isVisibleNow(item)) {
+      const primaryUrl = item.url || (Array.isArray(item.urls) && item.urls.length ? item.urls[0] : null);
+      const placeholder = document.createElement('div');
+      placeholder.className = 'photo-card comingsoon-card';
+      placeholder.innerHTML = `
+        <div class="image-container coming-soon">
+          ${primaryUrl ? `<img src="${primaryUrl}" loading="lazy" alt="${item.heading || ''}" />` : `<div class="img-placeholder"><div class="spinner"></div></div>`}
+          <div class="watermark">© Bineet Ghosh</div>
+          <div class="coming-badge">COMING SOON</div>
+        </div>
+        <div class="photo-info">
+          <h3>${item.heading || ''}</h3>
+          <p>${item.caption || ''}</p>
+          ${ item.visibleFrom ? `<p><em>Releases on ${item.visibleFrom}</em></p>` : '' }
+        </div>
+      `;
+      gallery.appendChild(placeholder);
+      setTimeout(() => loadImage(index + 1), DELAY);
+      return;
+    }
+// primaryUrl: single-image items use item.url, carousel items use first item.urls entry
   const primaryUrl = item.url || (Array.isArray(item.urls) && item.urls.length ? item.urls[0] : null);
 
   // create placeholder with spinner & info (same as before)

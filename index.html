@@ -276,7 +276,7 @@
     { url: "https://i.postimg.cc/52qZXK75/Moon-Shot.jpg", heading: "Shot of The Moon", caption: "A night where stars whisper and the moon shoots through the dark like a dream", price: "Ping Me!" },
     { url: "https://i.postimg.cc/DysVTw1M/Fishery2.jpg", heading: "Shared Waters", caption: "A quiet rhythm of life — humble hands, shared waters, and the harmony of growing together", price: "Ping Me!" },
     
-    { url: "https://i.postimg.cc/YSrTYNZ5/Roddur.jpg", heading: "রোদ্দুর", caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", price: "Ping Me!" },
+    { url: "https://i.postimg.cc/YSrTYNZ5/Roddur.jpg", heading: "রোদ্দুর", caption: "দেখ তোর জন্যে; রোদ্দুর নামিয়ে, পর্দা টাঙানো; কোথাও মন নেই, সবচেয়ে দামী এই; কথা জানানো", price: "Ping Me!" },
     { url: "https://i.postimg.cc/85s3np1w/Sil.jpg", heading: "Silhouette", caption: "Where light meets shadow, and the day whispers its last goodbye", price: "Ping Me!" },
         
     { url: "https://i.postimg.cc/zBMQssvN/Troops-of-Occupation.jpg", heading: "Troops of Occupation", caption: "Troops of occupation, not of war but of waves", price: "Ping Me!" },
@@ -306,7 +306,7 @@
     { url: "https://i.postimg.cc/Px2Z4Rp9/CT.jpg", heading: "Frost & Brick", caption: "Fresh snow, crisp air, and a little Manchester magic!", price: "Ping Me!" },
     { url: "https://i.postimg.cc/DytGBs0v/IMG-1307.jpg", heading: "Sinking Sun", caption: "Painting dreams across the sky! ", price: "Ping Me!" },
 	{ url: "https://i.postimg.cc/ZnQNkvLL/f5732b4b-8449-4800-9bac-6351bb378359.jpg", heading: "Indian Museum", caption: "Where past and present intertwine", price: "Ping Me!" },
-    { url: "https://i.postimg.cc/sfH7GbRZ/da9f9b3d-c12f-4678-98ce-f19b4e8b3b9e.jpg", heading: "জানলা", caption: "আমার জানলা দিয়ে আমার পৃথিবী| সেই পৃথিবীতে বিকেলের রং হেমন্তে হলুদ| সেই পৃথিবীতে বাঁচব বলেই যুদ্ধ করি রোজ| একটুখানি বাঁচার জন্য হাজার আপোষ", price: "Ping Me!" },
+    { url: "https://i.postimg.cc/sfH7GbRZ/da9f9b3d-c12f-4678-98ce-f19b4e8b3b9e.jpg", heading: "জানলা", caption: "আমার জানলা দিয়ে আমার পৃথিবী| সেই পৃথিবীতে বিকেলের রং হেমন্তে হলুদ| সেই পৃথিবীতে বাঁচব বলেই যুদ্ধ করি রোজ| একটুখানি বাঁচার জন্য হাজার আপোষ", price: "Ping Me!" },
     { url: "https://i.postimg.cc/hPJxLMSZ/4a7e292b-a6db-4d65-bd85-f71d016d95be.jpg", heading: "উঁকি || Peep", caption: "A quiet spectator—curiosity framed in stone and history", price: "Ping Me!" },
 	
 	{ url: "https://i.postimg.cc/mrzwpRNM/2929be06-87d7-4718-bffb-73bedde01027.jpg", heading: "Secrets Beyond the Iron", caption: "Behind that gate, there’s a mystery to find. An old ruined wall, hiding secrets of time", price: "Ping Me!" },
@@ -318,12 +318,16 @@
 	
 	{ url: "https://i.postimg.cc/zGfpWTyx/2.jpg", heading: "Where Heaven Meets Earth", caption: "A sanctuary standing firm beneath restless skies—steadfast, sacred, still", price: "Ping Me!" },
     { url: "https://i.postimg.cc/3J1ndtxy/7080279f-a7d8-4d1d-882b-bc2f202afeb5.jpg", heading: "The Writings on The Wall", caption: "Messages lost and found—stories etched, rebellions whispered", price: "Ping Me!" },
-    { url: "https://i.postimg.cc/NfBds3Bq/e47d1d30-eac9-455a-ae45-3f5079552062.jpg", heading: "এই আকাশ জানে, আমার প্রথম সব কিছু", caption: "এই আকাশই সাক্ষী—ভালোবাসার প্রথম চিঠি, প্রথম অপেক্ষা, প্রথম হারিয়ে যাওয়া", price: "Ping Me!" }
+    { url: "https://i.postimg.cc/NfBds3Bq/e47d1d30-eac9-455a-ae45-3f5079552062.jpg", heading: "এই আকাশ জানে, আমার প্রথম সব কিছু", caption: "এই আকাশই সাক্ষী—ভালোবাসার প্রথম চিঠি, প্রথম অপেক্ষা, প্রথম হারিয়ে যাওয়া", price: "Ping Me!" }
   ];
 
   const gallery = document.getElementById('gallery');
   const MAX_RETRIES = 2;
   const DELAY = 25; // 1 second between images
+
+  
+  let upcomingShown = 0;
+
 
   function createCard(item, imageUrl, failed = false) {
   const card = document.createElement('div');
@@ -422,7 +426,59 @@ function loadImage(index, retries = 0) {
   if (index >= data.length) return;
 
   const item = data[index];
-  // primaryUrl: single-image items use item.url, carousel items use first item.urls entry
+
+  // If scheduled for the future, show a blurred preview with badge.
+  // Only show up to 2 upcoming items in total.
+  // If scheduled for the future, only show it if it's one of the two nearest upcoming items
+  if (typeof isVisibleNow === 'function' && !isVisibleNow(item)) {
+  if (!ALLOWED_UPCOMING.has(index)) { setTimeout(() => loadImage(index + 1), DELAY); return; }
+
+  const primaryUrl = item.url || (Array.isArray(item.urls) && item.urls.length ? item.urls[0] : null);
+  const placeholder = document.createElement('div');
+  placeholder.className = 'photo-card comingsoon-card';
+  placeholder.innerHTML = `
+    <div class="image-container coming-soon">
+      ${primaryUrl
+        ? `<img src="${primaryUrl}" loading="lazy" alt="${item.heading || ''}">`
+        : `<div class="img-placeholder"><div class="spinner"></div></div>`}
+      <div class="watermark">© Bineet Ghosh</div>
+      <div class="coming-badge">Coming Soon</div>
+    </div>
+    <div class="photo-info">
+      <h3>${item.heading || ''}</h3>
+      <p>${item.caption || ''}</p>
+      ${item.visibleFrom ? `<p><em>Releases on ${item.visibleFrom}</em></p>` : ``}
+    </div>
+  `;
+  gallery.appendChild(placeholder);
+  setTimeout(() => loadImage(index + 1), DELAY);
+  return;
+}
+
+
+  
+    // If scheduled for the future, render a blurred Coming Soon card and continue
+    if (!isVisibleNow(item)) {
+      const primaryUrl = item.url || (Array.isArray(item.urls) && item.urls.length ? item.urls[0] : null);
+      const placeholder = document.createElement('div');
+      placeholder.className = 'photo-card comingsoon-card';
+      placeholder.innerHTML = `
+        <div class="image-container coming-soon">
+          ${primaryUrl ? `<img src="${primaryUrl}" loading="lazy" alt="${item.heading || ''}" />` : `<div class="img-placeholder"><div class="spinner"></div></div>`}
+          <div class="watermark">© Bineet Ghosh</div>
+          <div class="coming-badge">COMING SOON</div>
+        </div>
+        <div class="photo-info">
+          <h3>${item.heading || ''}</h3>
+          <p>${item.caption || ''}</p>
+          ${ item.visibleFrom ? `<p><em>Releases on ${item.visibleFrom}</em></p>` : '' }
+        </div>
+      `;
+      gallery.appendChild(placeholder);
+      setTimeout(() => loadImage(index + 1), DELAY);
+      return;
+    }
+// primaryUrl: single-image items use item.url, carousel items use first item.urls entry
   const primaryUrl = item.url || (Array.isArray(item.urls) && item.urls.length ? item.urls[0] : null);
 
   if (!isVisibleNow(item)) {
@@ -564,6 +620,25 @@ function loadImage(index, retries = 0) {
   testImg.src = primaryUrl;
 }
 
+
+// --- pick the two nearest upcoming items by date ---
+function parseYYYYMMDD(s) {
+  const p = String(s).split('-').map(Number);
+  if (p.length !== 3 || p.some(isNaN)) return null;
+  return new Date(p[0], p[1] - 1, p[2]); // local midnight
+}
+const now_ = new Date();
+const today_ = new Date(now_.getFullYear(), now_.getMonth(), now_.getDate());
+
+const UPCOMING_MAX = 2;               // keep your cap (can reuse your existing const)
+const _upcomingSorted = data
+  .map((item, i) => ({ i, d: item.visibleFrom ? parseYYYYMMDD(item.visibleFrom) : null }))
+  .filter(x => x.d && x.d > today_)    // strictly in the future
+  .sort((a, b) => a.d - b.d)           // nearest first
+  .slice(0, UPCOMING_MAX)
+  .map(x => x.i);
+
+const ALLOWED_UPCOMING = new Set(_upcomingSorted);
 
 
 
