@@ -67,6 +67,49 @@
 <script>
   const data = [
 
+  { url: "https://i.postimg.cc/ZKgVT2vh/Ancient.jpg", heading: "Ancient", caption: "He sits where time moves a little slower, in a house that’s seen all his seasons.", price: "Ping Me!", visibleFrom: "2025-12-12" },
+
+  { url: "https://i.postimg.cc/zXM0J6H5/Bridge.jpg", heading: "Bridge", caption: "Where steel meets the sky and one simple path ends up connecting so many lives.", price: "Ping Me!", visibleFrom: "2025-12-10" },
+  
+
+  { urls: [
+"https://i.postimg.cc/VNN6DG4m/Sky3.jpg",
+"https://i.postimg.cc/FKKRDWGv/Sky2.jpg",
+"https://i.postimg.cc/HLLxBZ3H/Sky1.jpg"
+], heading: "Two Skies", caption: "Two places, one sky. Maybe the breeze in Tuscaloosa carries a whisper from Tribeni.", price: "Ping Me!", visibleFrom: "2025-12-7"},
+
+  
+  
+  { url: "https://i.postimg.cc/Fzbz902x/Prayer_and_Flow.jpg", heading: "Prayer and Flow", caption: "He prays in stillness, while the river and the boat remind us that life never stays still.", price: "Ping Me!", visibleFrom: "2025-12-5" },
+  
+  { url: "https://i.postimg.cc/sxPxV5tx/Where_Every_Soul_Finds_Rest.jpg", heading: "Where Every Soul Finds Rest", caption: "On her banks, everyone finds their calm.", price: "Ping Me!", visibleFrom: "2025-12-3" },
+  
+  { urls: [
+"https://i.postimg.cc/CMbzHVdW/Peace_on_Her_Banks_1.jpg",
+"https://i.postimg.cc/Bb5bq2dT/Peace_on_Her_Banks_2.jpg",
+"https://i.postimg.cc/j262syGy/Peace_on_Her_Banks_3.jpg"
+], heading: "Peace on Her Banks", caption: "Even the smallest wanderer finds peace on her ancient banks.", price: "Ping Me!", visibleFrom: "2025-11-30"},
+
+
+  { url: "https://i.postimg.cc/L8FKk4C1/A-Mother.jpg", heading: "A Mother", caption: "A mother always finds sweetness, even in the wild.", price: "Ping Me!", visibleFrom: "2025-11-26" },
+  
+  { urls: [
+"https://i.postimg.cc/W1cLmpWZ/Built-by-Time-1.jpg",
+"https://i.postimg.cc/Mp0k9kNm/Built-by-Time-3.jpg",
+"https://i.postimg.cc/htRW84y9/bd3629d2-b6ec-4cf7-a46b-2f9a669ab416.jpg",
+"https://i.postimg.cc/2Sdp0pMn/Built-by-Time-2.jpg",
+"https://i.postimg.cc/fbMGF2Qr/Built-by-Time-4.jpg",
+], heading: "Built by Time", caption: "Time doesn’t move here — it layers.", price: "Ping Me!", visibleFrom: "2025-11-26"},
+
+  { url: "https://i.postimg.cc/mgWf3ZXP/A-Man.jpg", heading: "A Man", caption: "A story in sweat and silence.", price: "Ping Me!", visibleFrom: "2025-11-23" },
+
+
+  { url: "https://i.postimg.cc/4yPsJ8B6/The-Quiet-Home.jpg", heading: "The Quiet Home", caption: "A home where peace resides and nature whispers its timeless tales.", price: "Ping Me!", visibleFrom: "2025-11-21" },
+
+  { url: "https://i.postimg.cc/PJTdnGzf/Standing-Tall.jpg", heading: "Standing Tall", caption: "Alone, it stands tall - undaunted by the storm. The tree teaches: walk your path alone.", price: "Ping Me!", visibleFrom: "2025-11-19" },
+
+  { url: "https://i.postimg.cc/G20czT4y/The-River-that-Took-the-Sun-Away.jpg", heading: "The River that Took the Sun Away", caption: "I stood still, watching the river carry the sunset away.", price: "Ping Me!", visibleFrom: "2025-11-16" },
+
   { url: "https://i.postimg.cc/0Nqpzd2Q/Door-org.jpg", heading: "Where Curiosity Knocks", caption: "Where knowledge rests behind quiet doors, and curiosity holds the key.", price: "Ping Me!", visibleFrom: "2025-11-14" },
  
 
