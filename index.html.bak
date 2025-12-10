@@ -20,11 +20,20 @@
     
     <div class="header-text">
       <h1 class="site-title">Silhouette Lores</h1>
-      <p>
+      <!--<p>
         Ping Me: 
         <a href="https://www.instagram.com/silhouettelores/" target="_blank" class="link">@silhouettelores</a> |
         <a href="mailto:bineet.photography@gmail.com" class="link">bineet.photography@gmail.com</a>
       </p>
+	  -->
+	  <p>
+		  Join Us:
+		  <a href="https://www.instagram.com/silhouettelores/" target="_blank" class="link">Instagram</a> |
+		  <a href="https://www.facebook.com/silhouettelores" target="_blank" class="link">Facebook</a> |
+		  <a href="https://www.youtube.com/@sillores" target="_blank" class="link">YouTube</a> |
+		  <a href="mailto:bineet.photography@gmail.com" class="link">Email</a>
+	  </p>
+
       <p>Love what you see? Reach out to make it yours.</p>
       <p>All photos &copy; <a href="https://www.instagram.com/ghoshbineet/" target="_blank" class="link">Bineet Ghosh</a>. All rights reserved.</p>
       <nav class="top-menu">
@@ -66,6 +75,44 @@
 
 <script>
   const data = [
+  
+  { url: "https://i.postimg.cc/15YkmcX8/French.jpg", heading: "Streets of Old France", caption: "French streets, old souls, and stories carved into every brick.", price: "Ping Me!", visibleFrom: "2026-1-2" },
+  
+  { url: "https://i.postimg.cc/4N56Pd2x/The-quiet-Giant.jpg", heading: "The Quiet Giant", caption: "Where strength doesn’t roar… it rests.", price: "Ping Me!", visibleFrom: "2025-12-31" },
+  
+  { urls: [
+"https://i.postimg.cc/BbpDQYR2/Ruins_of_a_Kingdom.jpg",
+"https://i.postimg.cc/mkjM2XKC/Ruins_of_a_Kingdom_2.jpg",
+], heading: "Ruins of Kingdom", caption: "Broken walls, endless stories.", price: "Ping Me!", visibleFrom: "2025-12-28"},
+  
+  { urls: [
+"https://i.postimg.cc/kG2KMPXN/5.jpg",
+"https://i.postimg.cc/Kzqty8Fv/3.jpg",
+"https://i.postimg.cc/j5gyrSKY/4.jpg"
+], heading: "Silent night, peaceful heart", caption: "May your heart find the peace it has been searching for all year.", price: "Ping Me!", visibleFrom: "2025-12-26"},
+
+  { urls: [
+"https://i.postimg.cc/50N8GCcb/1.jpg",
+"https://i.postimg.cc/sXD58hFy/2.jpg",
+], heading: "Christmas glow at Bandel Church", caption: "Christmas lights on old walls… Bandel Church feels like a warm hug tonight.", price: "Ping Me!", visibleFrom: "2025-12-24"},
+
+
+  { urls: [
+"https://i.postimg.cc/GhHP3bmq/The_Wild_Crown.jpg",
+"https://i.postimg.cc/kXBNM7gw/The_Wild_Crown_2.jpg",
+"https://i.postimg.cc/gknycG2g/The_Wild_Crown_3.jpg"
+], heading: "The Wild Crown", caption: "He sits beneath centuries… and somehow wears a crown.", price: "Ping Me!", visibleFrom: "2025-12-21"},
+
+  { urls: [
+"https://i.postimg.cc/sxrKXTjJ/An_Evening.png",
+"https://i.postimg.cc/L5pvXx9D/An_Evening_2.jpg"
+], heading: "An Evening", caption: "Beach, breeze, and a melting sun.", price: "Ping Me!", visibleFrom: "2025-12-19"},
+
+
+  { url: "https://i.postimg.cc/yxHndL1P/Quiet_Evening.png", heading: "Quiet Evening", caption: "Just me, the waves, and quiet.", price: "Ping Me!", visibleFrom: "2025-12-17" },
+
+  { url: "https://i.postimg.cc/sxrKXTjK/A_Quiet_Breath_in_the_Noise.png", heading: "A Quiet Breath in the Noise", caption: "Finding a quiet breath in the middle of all this noise.", price: "Ping Me!", visibleFrom: "2025-12-14" },
+
 
   { url: "https://i.postimg.cc/ZKgVT2vh/Ancient.jpg", heading: "Ancient", caption: "He sits where time moves a little slower, in a house that’s seen all his seasons.", price: "Ping Me!", visibleFrom: "2025-12-12" },
 
@@ -91,7 +138,7 @@
 ], heading: "Peace on Her Banks", caption: "Even the smallest wanderer finds peace on her ancient banks.", price: "Ping Me!", visibleFrom: "2025-11-30"},
 
 
-  { url: "https://i.postimg.cc/L8FKk4C1/A-Mother.jpg", heading: "A Mother", caption: "A mother always finds sweetness, even in the wild.", price: "Ping Me!", visibleFrom: "2025-11-26" },
+  { url: "https://i.postimg.cc/L8FKk4C1/A-Mother.jpg", heading: "A Mother", caption: "A mother always finds sweetness, even in the wild.", price: "Ping Me!", visibleFrom: "2025-11-28" },
   
   { urls: [
 "https://i.postimg.cc/W1cLmpWZ/Built-by-Time-1.jpg",

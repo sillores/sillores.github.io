@@ -308,3 +308,11 @@ footer a:hover {
 }
 .comingsoon-card .photo-info em { color: #bbb; }
 
+
+
+.header-text p a.link {
+  margin: 0 4px;
+  white-space: nowrap;
+}
+
+
