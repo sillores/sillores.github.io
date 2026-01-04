@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Unfollowers Checker</title>
+    <style>
+        .orange { color: orange; }
+        .red { color: red; }
+    </style>
+</head>
+<body>
+    <h2>Instagram Unfollowers Checker</h2>
+    <p>Upload your "followers" and "following" HTML files:</p>
+    <label for="followersFile">Browse Followers File:</label>
+    <input type="file" id="followersFile" accept=".html"><br><br>
+    <label for="followingFile">Browse Following File:</label>
+    <input type="file" id="followingFile" accept=".html"><br><br>
+    <button onclick="processFiles()">Check</button>
+    <h3>Accounts you follow who don't follow you back: <span id="count"></span></h3>
+    <ul id="unfollowersList"></ul>
+
+    <script>
+        function extractUsernamesWithDates(htmlText) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+            const usernames = new Map();
+            
+            doc.querySelectorAll("div.pam").forEach(div => {
+                const link = div.querySelector("a");
+                const dateDiv = div.querySelector("div:nth-of-type(2)");
+                if (link && dateDiv) {
+                    const username = link.textContent.trim();
+                    const followDate = dateDiv.textContent.trim();
+                    usernames.set(username, followDate);
+                }
+            });
+            
+            return usernames;
+        }
+
+        function getDateDifference(dateString) {
+            if (!dateString || dateString === "Unknown") return -1;
+            const followDate = new Date(dateString);
+            if (isNaN(followDate)) return -1;
+            const today = new Date();
+            const diffTime = Math.abs(today - followDate);
+            return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        }
+
+        function processFiles() {
+            const followersFile = document.getElementById('followersFile').files[0];
+            const followingFile = document.getElementById('followingFile').files[0];
+
+            if (!followersFile || !followingFile) {
+                alert("Please upload both files.");
+                return;
+            }
+
+            Promise.all([followersFile.text(), followingFile.text()]).then(([followersText, followingText]) => {
+                const followers = extractUsernamesWithDates(followersText);
+                const following = extractUsernamesWithDates(followingText);
+                
+                const notFollowingBack = [...following.keys()].filter(user => !followers.has(user));
+                
+                const unfollowersList = document.getElementById("unfollowersList");
+                const countElement = document.getElementById("count");
+                unfollowersList.innerHTML = "";
+                countElement.textContent = notFollowingBack.length;
+                
+                notFollowingBack.forEach(user => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.textContent = user;
+                    a.href = `https://www.instagram.com/${user}/`;
+                    a.target = "_blank";
+                    
+                    const followDate = following.get(user) || "Unknown";
+                    const daysFollowed = getDateDifference(followDate);
+                    
+                    const dateSpan = document.createElement("span");
+                    dateSpan.textContent = ` (Followed on: ${followDate})`;
+                    if (daysFollowed > 4) {
+                        dateSpan.classList.add("red");
+                    } else if (daysFollowed >= 2) {
+                        dateSpan.classList.add("orange");
+                    }
+                    
+                    li.appendChild(a);
+                    li.appendChild(dateSpan);
+                    unfollowersList.appendChild(li);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

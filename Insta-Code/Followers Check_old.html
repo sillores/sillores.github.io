@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Unfollowers Checker</title>
+</head>
+<body>
+    <h2>Instagram Unfollowers Checker</h2>
+    <p>Upload your "followers" and "following" HTML files:</p>
+    <label for="followersFile">Browse Followers File:</label>
+    <input type="file" id="followersFile" accept=".html"><br><br>
+    <label for="followingFile">Browse Following File:</label>
+    <input type="file" id="followingFile" accept=".html"><br><br>
+    <button onclick="processFiles()">Check</button>
+    <h3>Accounts you follow who don't follow you back: <span id="count"></span></h3>
+    <ul id="unfollowersList"></ul>
+
+    <script>
+        function extractUsernames(htmlText) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+            const usernames = new Set();
+            
+            doc.querySelectorAll("a").forEach(link => {
+                if (link.textContent.trim()) {
+                    usernames.add(link.textContent.trim());
+                }
+            });
+            
+            return usernames;
+        }
+
+        function processFiles() {
+            const followersFile = document.getElementById('followersFile').files[0];
+            const followingFile = document.getElementById('followingFile').files[0];
+
+            if (!followersFile || !followingFile) {
+                alert("Please upload both files.");
+                return;
+            }
+
+            Promise.all([followersFile.text(), followingFile.text()]).then(([followersText, followingText]) => {
+                const followers = extractUsernames(followersText);
+                const following = extractUsernames(followingText);
+                
+                const notFollowingBack = [...following].filter(user => !followers.has(user));
+                
+                const unfollowersList = document.getElementById("unfollowersList");
+                const countElement = document.getElementById("count");
+                unfollowersList.innerHTML = "";
+                countElement.textContent = notFollowingBack.length;
+                
+                notFollowingBack.forEach(user => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.textContent = user;
+                    a.href = `https://www.instagram.com/${user}/`;
+                    a.target = "_blank";
+                    li.appendChild(a);
+                    unfollowersList.appendChild(li);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

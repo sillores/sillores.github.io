@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Lost Followers Checker</title>
+</head>
+<body>
+    <h2>Instagram Lost Followers Checker</h2>
+    <p>Upload your "old followers" and "current followers" HTML files:</p>
+    <label for="oldFollowersFile">Browse Old Followers File:</label>
+    <input type="file" id="oldFollowersFile" accept=".html"><br><br>
+    <label for="currentFollowersFile">Browse Current Followers File:</label>
+    <input type="file" id="currentFollowersFile" accept=".html"><br><br>
+    <label for="randomCount">Number of random lost followers to display:</label>
+    <input type="number" id="randomCount" value="10" min="1"><br><br>
+    <button onclick="processFiles()">Check</button>
+    
+    <h3>Followers who unfollowed you: <span id="lostCount"></span></h3>
+    <ul id="lostFollowersList"></ul>
+    
+    <h3>Random Lost Followers:</h3>
+    <ul id="randomLostFollowersList"></ul>
+    
+    <script>
+        function extractUsernames(htmlText) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+            const usernames = new Set();
+            
+            doc.querySelectorAll("a").forEach(link => {
+                if (link.textContent.trim()) {
+                    usernames.add(link.textContent.trim());
+                }
+            });
+            
+            return usernames;
+        }
+
+        function getRandomSample(array, count) {
+            const shuffled = [...array].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function processFiles() {
+            const oldFollowersFile = document.getElementById('oldFollowersFile').files[0];
+            const currentFollowersFile = document.getElementById('currentFollowersFile').files[0];
+            const randomCount = parseInt(document.getElementById('randomCount').value, 10);
+
+            if (!oldFollowersFile || !currentFollowersFile) {
+                alert("Please upload both files.");
+                return;
+            }
+
+            Promise.all([oldFollowersFile.text(), currentFollowersFile.text()]).then(([oldFollowersText, currentFollowersText]) => {
+                const oldFollowers = extractUsernames(oldFollowersText);
+                const currentFollowers = extractUsernames(currentFollowersText);
+                
+                const lostFollowers = [...oldFollowers].filter(user => !currentFollowers.has(user));
+                
+                document.getElementById("lostCount").textContent = lostFollowers.length;
+                
+                const lostFollowersList = document.getElementById("lostFollowersList");
+                lostFollowersList.innerHTML = "";
+                lostFollowers.forEach(user => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.textContent = user;
+                    a.href = `https://www.instagram.com/${user}/`;
+                    a.target = "_blank";
+                    li.appendChild(a);
+                    lostFollowersList.appendChild(li);
+                });
+                
+                const randomLost = getRandomSample(lostFollowers, randomCount);
+                const randomLostFollowersList = document.getElementById("randomLostFollowersList");
+                randomLostFollowersList.innerHTML = "";
+                randomLost.forEach(user => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.textContent = user;
+                    a.href = `https://www.instagram.com/${user}/`;
+                    a.target = "_blank";
+                    li.appendChild(a);
+                    randomLostFollowersList.appendChild(li);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

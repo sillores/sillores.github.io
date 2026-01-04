@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Unfollowers Checker (Fixed v3)</title>
+    <style>
+        .orange { color: orange; }
+        .red { color: red; }
+        body { font-family: Arial, sans-serif; padding: 16px; }
+        input { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <h2>Instagram Unfollowers Checker (Fixed v3)</h2>
+    <p>Upload your "followers" and "following" HTML files (exported page files):</p>
+    <label for="followersFile">Followers file:</label>
+    <input type="file" id="followersFile" accept=".html"><br>
+    <label for="followingFile">Following file:</label>
+    <input type="file" id="followingFile" accept=".html"><br><br>
+    <button onclick="processFiles()">Check</button>
+
+    <h3>Accounts you follow who don't follow you back: <span id="count"></span></h3>
+    <ul id="unfollowersList"></ul>
+
+    <script>
+    function extractUsernameFromHref(href) {
+        if (!href) return "";
+        try {
+            // Remove trailing slash and query/hash
+            href = href.split(/[?#]/)[0].replace(/\/$/, "");
+            const m = href.match(/instagram\.com\/(?:_u\/)?([^\/]+)$/i);
+            if (m && m[1]) return m[1].toLowerCase();
+        } catch (e) {}
+        return "";
+    }
+
+    function extractUsernamesWithDates(htmlText) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, 'text/html');
+        const usernames = new Map();
+
+        // Find probable user blocks (pam is present in both old and new exports)
+        const blocks = doc.querySelectorAll('div.pam');
+        blocks.forEach(block => {
+            const link = block.querySelector("a[href*='instagram.com']");
+            if (!link) return;
+
+            // Prefer extracting username from the href (handles /_u/ variants & cases where link text is the full URL)
+            let username = extractUsernameFromHref(link.getAttribute('href'));
+
+            // Fallback — if href extraction failed, use visible text
+            if (!username) {
+                username = (link.textContent || '').trim().toLowerCase();
+            }
+            if (!username) return;
+
+            // Try to get the date. Common structure:
+            // div.pam > div._a6-p > div > div (inner) -> <div><a>...</a></div><div>DATE</div>
+            let dateText = null;
+            // first, check immediate sibling of the link's parent (common case)
+            const linkParent = link.parentElement;
+            if (linkParent && linkParent.nextElementSibling && linkParent.nextElementSibling.tagName.toLowerCase() === 'div') {
+                dateText = linkParent.nextElementSibling.textContent.trim();
+            }
+
+            // fallback selectors if above didn't find it
+            if (!dateText) {
+                const cand1 = block.querySelector("div._a6-p > div > div:nth-of-type(2)");
+                const cand2 = block.querySelector("div._a6-p div div:nth-of-type(2)");
+                const cand3 = block.querySelector("div:nth-of-type(2)");
+                dateText = (cand1 || cand2 || cand3) ? ( (cand1 || cand2 || cand3).textContent.trim() ) : null;
+            }
+
+            if (!dateText) dateText = "Unknown";
+            usernames.set(username, dateText);
+        });
+
+        return usernames;
+    }
+
+    function getDateDifference(dateString) {
+        if (!dateString || dateString === "Unknown") return -1;
+        const followDate = new Date(dateString);
+        if (isNaN(followDate)) return -1;
+        const today = new Date();
+        const diffTime = Math.abs(today - followDate);
+        return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    }
+
+    function processFiles() {
+        const followersFile = document.getElementById('followersFile').files[0];
+        const followingFile = document.getElementById('followingFile').files[0];
+
+        if (!followersFile || !followingFile) {
+            alert("Please upload both files.");
+            return;
+        }
+
+        Promise.all([followersFile.text(), followingFile.text()]).then(([followersText, followingText]) => {
+            const followers = extractUsernamesWithDates(followersText);
+            const following = extractUsernamesWithDates(followingText);
+
+            // Comparison should be case-insensitive
+            const followersSet = new Set([...followers.keys()].map(k => k.toLowerCase()));
+            const notFollowingBack = [...following.keys()].filter(u => !followersSet.has(u.toLowerCase()));
+
+            const unfollowersList = document.getElementById("unfollowersList");
+            const countElement = document.getElementById("count");
+            unfollowersList.innerHTML = "";
+            countElement.textContent = notFollowingBack.length;
+
+            notFollowingBack.forEach(user => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.textContent = user;
+                a.href = `https://www.instagram.com/${user}/`;
+                a.target = "_blank";
+
+                const followDate = following.get(user) || "Unknown";
+                const daysFollowed = getDateDifference(followDate);
+
+                const dateSpan = document.createElement("span");
+                dateSpan.textContent = ` (Followed on: ${followDate})`;
+                if (daysFollowed > 4) {
+                    dateSpan.classList.add("red");
+                } else if (daysFollowed >= 2) {
+                    dateSpan.classList.add("orange");
+                }
+
+                li.appendChild(a);
+                li.appendChild(dateSpan);
+                unfollowersList.appendChild(li);
+            });
+        });
+    }
+    </script>
+</body>
+</html>
