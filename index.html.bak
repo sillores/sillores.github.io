@@ -20,12 +20,7 @@
     
     <div class="header-text">
       <h1 class="site-title">Silhouette Lores</h1>
-      <!--<p>
-        Ping Me: 
-        <a href="https://www.instagram.com/silhouettelores/" target="_blank" class="link">@silhouettelores</a> |
-        <a href="mailto:bineet.photography@gmail.com" class="link">bineet.photography@gmail.com</a>
-      </p>
-	  -->
+	  
 	  <p>
 		  Join Us:
 		  <a href="https://www.instagram.com/silhouettelores/" target="_blank" class="link">Instagram</a> |
@@ -35,10 +30,12 @@
 	  </p>
 
       <p>Love what you see? Reach out to make it yours.</p>
-      <p>All photos &copy; <a href="https://www.instagram.com/ghoshbineet/" target="_blank" class="link">Bineet Ghosh</a>. All rights reserved.</p>
+      <p>All photos & contents &copy; <a href="https://www.instagram.com/ghoshbineet/" target="_blank" class="link">Bineet Ghosh.</a> All rights reserved.</p>
+	  <p><i><b>I post emotions, not autobiography</b></i></p>
       <nav class="top-menu">
         <a href="index.html" class="nav-link">Home</a>
         <a href="archive.html" target="_blank" class="nav-link">Archive</a>
+        <a href="calm.html" class="nav-link">Calm & Comfort</a>
       </nav>
 
     </div>
@@ -53,16 +50,19 @@
   <section id="gallery"></section>
 
   <footer>
-    <p>Follow on <a href="https://www.instagram.com/silhouettelores/" target="_blank">Instagram</a></p>
-    <p>Contact: <a href="mailto:bineet.photography@gmail.com">bineet.photography@gmail.com</a></p>
-
-    
+    <p>
+      Find us on
+      <a href="https://www.instagram.com/silhouettelores/" target="_blank">Instagram</a> ·
+      <a href="https://www.facebook.com/silhouettelores" target="_blank">Facebook</a> ·
+      <a href="https://www.youtube.com/@sillores" target="_blank">YouTube</a>
+    </p>
   </footer>
   
 
 
 
  <!--
+ 
  
 
  
@@ -75,6 +75,49 @@
 
 <script>
   const data = [
+
+
+    { urls: [
+"https://i.postimg.cc/FFpqSN0j/The_Republic_4.jpg",
+"https://i.postimg.cc/66cSZtCR/The_Republic_1.jpg",
+"https://i.postimg.cc/XNLh549C/The_Republic_3.jpg",
+"https://i.postimg.cc/bYgMnp1D/The_Republic_2.png",
+], heading: "The Republic", caption: "The Republic echoes through every brick.", price: "Ping Me!", visibleFrom: "2026-1-25"},
+
+	{ url: "https://i.postimg.cc/ZYy8ZSBP/Pages-in-Stone.jpg", heading: "Pages in Stone", caption: "Where walls stand as pages of history.", price: "Ping Me!", visibleFrom: "2026-1-23" },
+
+	{ url: "https://i.postimg.cc/4xRXYzxh/Skyline.jpg", heading: "Skyline", caption: "Where the skyline is built of memories.", price: "Ping Me!", visibleFrom: "2026-1-21" },
+  
+    { url: "https://i.postimg.cc/bN9pB7XH/A-Quiet-Stop.png", heading: "A Quiet Stop", caption: "Early morning air, silent mountains, and warm tea.", price: "Ping Me!", visibleFrom: "2026-1-21" },
+  
+
+    { urls: [
+"https://i.postimg.cc/pXY6vxLt/The_Glow_of_Divinity.jpg",
+"https://i.postimg.cc/dtmxFvVc/The_Glow_of_Divinity_2.jpg",
+"https://i.postimg.cc/rFCPTcwk/The_Glow_of_Divinity_3.jpg"
+], heading: "The Glow of Divinity", caption: "Even from afar, divinity finds a way to glow through the darkest night.", price: "Ping Me!", visibleFrom: "2026-1-18"},
+  
+  
+   { url: "https://i.postimg.cc/LsLS2hpj/Time-pauses-here.jpg", heading: "Time pauses here", caption: "This place doesn’t ask you to move forward. It asks you to stay a little longer.", price: "Ping Me!", visibleFrom: "2026-1-16" },
+  
+  
+   { url: "https://i.postimg.cc/KvHJfNMJ/Guardian-of-Nostalgia.jpg", heading: "Guardian of Nostalgia", caption: "A silent witness to memories, standing guard over nostalgia.", price: "Ping Me!", visibleFrom: "2026-1-11" },
+  
+   { url: "https://i.postimg.cc/3rDM2d62/Endurance.png", heading: "Endurance", caption: "Rusted by years. Still standing. Still refusing to give up.", price: "Ping Me!", visibleFrom: "2026-1-9" },
+ 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+   { url: "https://i.postimg.cc/JzFc34SN/Reflected-Nostalgia.jpg", heading: "Reflected Nostalgia", caption: "An old city, held together by memory and reflection.", price: "Ping Me!", visibleFrom: "2026-1-4" },
   
   { url: "https://i.postimg.cc/15YkmcX8/French.jpg", heading: "Streets of Old France", caption: "French streets, old souls, and stories carved into every brick.", price: "Ping Me!", visibleFrom: "2026-1-2" },
   
@@ -85,7 +128,8 @@
 "https://i.postimg.cc/mkjM2XKC/Ruins_of_a_Kingdom_2.jpg",
 ], heading: "Ruins of Kingdom", caption: "Broken walls, endless stories.", price: "Ping Me!", visibleFrom: "2025-12-28"},
   
-  { urls: [
+
+{ urls: [
 "https://i.postimg.cc/kG2KMPXN/5.jpg",
 "https://i.postimg.cc/Kzqty8Fv/3.jpg",
 "https://i.postimg.cc/j5gyrSKY/4.jpg"
@@ -300,10 +344,9 @@
     { url: "https://i.postimg.cc/j5fM2KDK/Shadow-of-Justice.jpg", heading: "The Shadow of Justice", caption: "Justice stands eclipsed by its Shadow—Pompous and All-consuming", price: "Ping Me!" },
 	{ url: "https://i.postimg.cc/L5BvkTkb/487676300-2987074498122938-7983797521335189285-n.jpg", heading: "Hope, Framed in Stone and Silence", caption: "Light at The End of The Tunnel", price: "Ping Me!" },
     { url: "https://i.postimg.cc/fWxHhz4f/70edf360-a886-4b39-98f3-1c8c3a3c151c.jpg", heading: "Light Trails", caption: " Scribbles of Lights Captured with Slow Shutters", price: "Ping Me!" },
-    { url: "https://i.postimg.cc/0yHnCrmP/1.jpg", heading: "Sanctuary Beneath the Storm", caption: "Even as clouds gather, the bell waits—solemn, steady, eternal", price: "Ping Me!" },
-	
-	{ url: "https://i.postimg.cc/zGfpWTyx/2.jpg", heading: "Where Heaven Meets Earth", caption: "A sanctuary standing firm beneath restless skies—steadfast, sacred, still", price: "Ping Me!" },
-    { url: "https://i.postimg.cc/3J1ndtxy/7080279f-a7d8-4d1d-882b-bc2f202afeb5.jpg", heading: "The Writings on The Wall", caption: "Messages lost and found—stories etched, rebellions whispered", price: "Ping Me!" },
+  
+  
+  { url: "https://i.postimg.cc/3J1ndtxy/7080279f-a7d8-4d1d-882b-bc2f202afeb5.jpg", heading: "The Writings on The Wall", caption: "Messages lost and found—stories etched, rebellions whispered", price: "Ping Me!" },
     { url: "https://i.postimg.cc/NfBds3Bq/e47d1d30-eac9-455a-ae45-3f5079552062.jpg", heading: "এই আকাশ জানে, আমার প্রথম সব কিছু", caption: "এই আকাশই সাক্ষী—ভালোবাসার প্রথম চিঠি, প্রথম অপেক্ষা, প্রথম হারিয়ে যাওয়া", price: "Ping Me!" }
   ];
 
