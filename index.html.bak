@@ -80,14 +80,26 @@
   { url: "", heading: "", caption: "", price: "Ping Me!", visibleFrom: "2099-1-1" },
   
   { url: "", heading: "", caption: "", price: "Ping Me!", visibleFrom: "2099-1-1" },
+  
+
+  { url: "https://i.postimg.cc/8CcrXDS7/Echoes_of_Empire.jpg", heading: "Echoes of Empire", caption: "These columns have seen centuries pass — power, books, silence, and the changing city of Kolkata.", price: "Ping Me!", visibleFrom: "2026-5-1" },
+  
+  { url: "https://i.postimg.cc/0NjJXxsM/Where_the_River_Finds_Its_Way.jpg", heading: "Where the River Finds Its Way", caption: "Through stone and silence, the river keeps moving — carving its own quiet path through the mountains.", price: "Ping Me!", visibleFrom: "2026-4-28" },
+  
+  { url: "https://i.postimg.cc/Z526tKQL/17763703-92bb-4c74-92ca-1e750e24aedc.jpg", heading: "Unfiltered Youth", caption: "No smile. No pose. Just truth in motion.", price: "Ping Me!", visibleFrom: "2026-4-24" },
+
+  { url: "https://i.postimg.cc/054Qqjxm/Where_Roads_Lose_Their_Urgency.jpg", heading: "Where Roads Lose Their Urgency", caption: "A pause, carved in green and stone.", price: "Ping Me!", visibleFrom: "2026-4-21" },
 
 
+  { url: "https://i.postimg.cc/Z5L9hQ9C/8297b3e5_05ae_4cd3_9dc1_1308dd6a1ba0.jpg", heading: "A Pigeon in a Palace", caption: "Even the grandest architecture makes room for the simplest life.", price: "Ping Me!", visibleFrom: "2026-4-17" },
+  
+  { url: "https://i.postimg.cc/qvrtSr76/4e7f2c5d_be70_4595_804e_ffe1a519e47e.jpg", heading: "The Gathering", caption: "A council of wings above a silent kingdom.", price: "Ping Me!", visibleFrom: "2026-4-14" },
 
   { url: "https://i.postimg.cc/bww9JjSr/f2f08233-c4d3-4c2d-a8c0-dc939da7dd5b.jpg", heading: "The Door That Time Forgot", caption: "Where walls fall apart, nature remembers how to enter.", price: "Ping Me!", visibleFrom: "2026-4-10" },
 
   { url: "https://i.postimg.cc/TwwzqssX/42d4427e-a830-4f5a-9327-17b949b37333.jpg", heading: "Democracy in Motion", caption: "The past watches the present walk by.", price: "Ping Me!", visibleFrom: "2026-4-7" },
 
-  { url: "https://i.postimg.cc/054Qqjxm/Where_Roads_Lose_Their_Urgency.jpg", heading: "Where Roads Lose Their Urgency", caption: "A pause, carved in green and stone.", price: "Ping Me!", visibleFrom: "2026-4-3" },
+  { url: "https://i.postimg.cc/Y0xtBLJ6/Kaler-Uthon.png", heading: "কালের উঠোন", caption: "কালের ঊর্ধ্বে—নীরবে দাঁড়িয়ে", price: "Ping Me!", visibleFrom: "2026-4-3" },
   
   { url: "https://i.postimg.cc/8cLPHd3z/Evening-Found-a-Witness.jpg", heading: "Evening Found a Witness", caption: "The road moved on. He stayed.", price: "", visibleFrom: "2026-3-31" },
 
@@ -102,20 +114,32 @@
   { url: "https://i.postimg.cc/FHfRT4Zm/Between-Departures.jpg", heading: "Between Departures", caption: "Every journey begins before the train arrives, in the stillness where intention gathers courage.", price: "Ping Me!", visibleFrom: "2026-3-13" },
 
   { url: "https://i.postimg.cc/qvfVdHTS/At-the-Crossroads.jpg", heading: "At the Crossroads", caption: "Every direction looks ordinary—until one of them changes everything.", price: "Ping Me!", visibleFrom: "2026-3-10" },
-
-  { url: "https://i.postimg.cc/Y0xtBLJ6/Kaler-Uthon.png", heading: "কালের উঠোন", caption: "কালের ঊর্ধ্বে—নীরবে দাঁড়িয়ে", price: "Ping Me!", visibleFrom: "2026-3-6" },
   
+
+  { urls: [
+"https://i.postimg.cc/Vv2rxDx8/092b43f1_775c_4d90_9b4d_81031c6e577b.jpg",
+"https://i.postimg.cc/FzwdMDMm/3603fd76_74b9_4c08_86fe_cbb8914e40d7.jpg",
+"https://i.postimg.cc/kGL60f07/efbb5aed_7c41_4b1d_a3f3_f19fe1454c47.jpg"
+], heading: "Royal Bloom", caption: "A little crown of violet rising quietly from a humble pot.", price: "Ping Me!", visibleFrom: "2026-3-6"},
+
+
+
+
+  { url: "https://i.postimg.cc/brwj9PrB/New-Lens.jpg", heading: "A New Lens, A New Perspective", caption: "Every lens is a doorway to frames that haven't been imagined yet.", price: "Ping Me!", visibleFrom: "2026-3-4" },
+
+
   { url: "https://i.postimg.cc/xdwJWcZG/The-Weight-of-the-Throne.jpg", heading: "The Weight of the Throne", caption: "Power is never solitary. Even when seated above all, a ruler is surrounded—by counsel, by ceremony, by the quiet pressure of expectation.", price: "Ping Me!", visibleFrom: "2026-3-3" },
 
 
-  { url: "https://i.postimg.cc/h4J8qcrG/Freedom.jpg", heading: "Freedom", caption: "From behind these grills, the bridge looks like a way out, like freedom waiting.", price: "Ping Me!", visibleFrom: "2026-2-27" },
+	{ urls: [
+"https://i.postimg.cc/zfTjSVZF/Like_Tired_Birds_at_Sunset_2.jpg",
+"https://i.postimg.cc/3w2BCd5t/Like_Tired_Birds_at_Sunset.jpg",
+], heading: "Like Tired Birds at Sunset", caption: "Like tired birds at sunset, we leave our cubicles and return to where we belong.", price: "Ping Me!", visibleFrom: "2026-2-27"},
   
   { url: "https://i.postimg.cc/8PxSdMfd/feb24.jpg", heading: "জীবন ও জীবিকা", caption: "নদীর বুকে ভেসে থাকে জীবন, ঘাটে এসে তার নাম বদলে যায়—জীবিকা।", price: "Ping Me!", visibleFrom: "2026-2-24" },
 
-  { urls: [
-"https://i.postimg.cc/zfTjSVZF/Like_Tired_Birds_at_Sunset_2.jpg",
-"https://i.postimg.cc/3w2BCd5t/Like_Tired_Birds_at_Sunset.jpg",
-], heading: "Like Tired Birds at Sunset", caption: "Like tired birds at sunset, we leave our cubicles and return to where we belong.", price: "Ping Me!", visibleFrom: "2026-2-20"},
+
+	{ url: "https://i.postimg.cc/h4J8qcrG/Freedom.jpg", heading: "Freedom", caption: "From behind these grills, the bridge looks like a way out, like freedom waiting.", price: "Ping Me!", visibleFrom: "2026-2-20" },
 
 	{ url: "https://i.postimg.cc/tJLM6dvC/feb17.jpg", heading: "Lines Across the Hills", caption: "Evening pauses briefly—while roads, wires, and intentions keep moving.", price: "Ping Me!", visibleFrom: "2026-2-17" },
 
