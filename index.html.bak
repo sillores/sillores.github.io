@@ -36,7 +36,8 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="archive.html" target="_blank" class="nav-link">Archive</a>
         <a href="calm.html" class="nav-link">Calm & Comfort</a>
-		<a href="series.html" class="nav-link">Education & Series</a>
+		    <a href="series.html" class="nav-link">Education & Series</a>
+        <a href="free.html" class="nav-link">Free Downloads</a>
       </nav>
 
     </div>
@@ -80,8 +81,15 @@
   { url: "", heading: "", caption: "", price: "Ping Me!", visibleFrom: "2099-1-1" },
   
   { url: "", heading: "", caption: "", price: "Ping Me!", visibleFrom: "2099-1-1" },
-  
 
+  { url: "https://i.postimg.cc/kXD18pJ8/5eb11605-fd6e-4918-bc3d-36abcde59b17.png", heading: "Where History Still Breathes", caption: "Between the red walls and open sky lies a story of freedom, struggle, and pride", price: "Ping Me!", visibleFrom: "2026-05-15" },
+
+  { url: "https://i.postimg.cc/W4bLB7m2/A-Passage-to-the-Past.jpg", heading: "A Passage to the Past", caption: "Thousands walk through, but each carries their own moment into history", price: "Ping Me!", visibleFrom: "2026-05-12" },
+
+  { url: "https://i.postimg.cc/FHfRT4Zm/Between-Departures.jpg", heading: "Between Departures", caption: "Every journey begins before the train arrives, in the stillness where intention gathers courage.", price: "Ping Me!", visibleFrom: "2026-5-8" },
+  
+  { url: "https://i.postimg.cc/63gJFLWx/d1cca5da-73ef-4786-8c1c-b6f65c7884e3.jpg", heading: "Machinery and Memory", caption: "Rusty gears still hold the stories of countless days of work.", price: "Ping Me!", visibleFrom: "2026-5-5" },
+  
   { url: "https://i.postimg.cc/8CcrXDS7/Echoes_of_Empire.jpg", heading: "Echoes of Empire", caption: "These columns have seen centuries pass — power, books, silence, and the changing city of Kolkata.", price: "Ping Me!", visibleFrom: "2026-5-1" },
   
   { url: "https://i.postimg.cc/0NjJXxsM/Where_the_River_Finds_Its_Way.jpg", heading: "Where the River Finds Its Way", caption: "Through stone and silence, the river keeps moving — carving its own quiet path through the mountains.", price: "Ping Me!", visibleFrom: "2026-4-28" },
@@ -111,7 +119,6 @@
   
   { url: "https://i.postimg.cc/3xBWttXC/feb3.jpg", heading: "Between Streets and Stories", caption: "A sign, a wall, a narrow sky—enough to suggest a meal, a memory, a pause. ", price: "Ping Me!", visibleFrom: "2026-3-17" },
 
-  { url: "https://i.postimg.cc/FHfRT4Zm/Between-Departures.jpg", heading: "Between Departures", caption: "Every journey begins before the train arrives, in the stillness where intention gathers courage.", price: "Ping Me!", visibleFrom: "2026-3-13" },
 
   { url: "https://i.postimg.cc/qvfVdHTS/At-the-Crossroads.jpg", heading: "At the Crossroads", caption: "Every direction looks ordinary—until one of them changes everything.", price: "Ping Me!", visibleFrom: "2026-3-10" },
   
